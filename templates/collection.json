@@ -11,6 +11,7 @@
   "sections": {
     "image_with_text_2_yPTzKf": {
       "type": "image-with-text-2",
+      "disabled": true,
       "name": "Image with text overlay",
       "settings": {
         "container": "container",
