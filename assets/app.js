@@ -10276,9 +10276,17 @@ initTheme();
 
   function setMegaMaxHeight(){
     if(!mql.matches) return;
-    const bottom=header.getBoundingClientRect().bottom||0;
-    const padding=24;
-    const maxH=Math.max(240,window.innerHeight-Math.ceil(bottom)-padding);
+    const item=document.querySelector('li.sf-menu-item-parent[data-mega="categorii"]');
+    const panel=item&&item.querySelector('.sf-menu__desktop-sub_menu, .sf-menu__desktop-sub-menu');
+    const content=panel&&panel.querySelector('.sf-menu-submenu__content')||panel;
+    let bottomGap=24;
+    if(content){
+      const cs=getComputedStyle(content);
+      const pb=parseFloat(cs.paddingBottom);
+      if(!Number.isNaN(pb)) bottomGap=pb;
+    }
+    const headerBottom=header.getBoundingClientRect().bottom||0;
+    const maxH=Math.max(240,window.innerHeight-Math.ceil(headerBottom)-Math.ceil(bottomGap));
     document.documentElement.style.setProperty('--eg-mega-max-h',`${maxH}px`);
   }
 

@@ -14,7 +14,8 @@
   .sf-header .sf-menu-item-parent[data-mega="categorii"] .sf-menu-submenu__content{
     box-sizing:border-box;
     padding:2rem;
-    padding-bottom:24px;
+    /* bottom gap controlat prin variabilă + respectă safe area */
+    padding-bottom: calc(var(--eg-mega-bottom-gap, 32px) + env(safe-area-inset-bottom));
     overscroll-behavior:contain;
     scrollbar-gutter:stable both-edges;
     max-height:var(--eg-mega-max-h,calc(100vh - 140px));
