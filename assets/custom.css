@@ -229,6 +229,13 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+
+  /* Maintain bottom gap inside Categorii mega menu panel */
+  .sf-header .sf-menu-item-parent[data-mega="categorii"] .sf-menu-submenu__content::after {
+    content: "";
+    display: block;
+    height: 28px;
+  }
 }
 
 @media (min-width: 1024px) {
