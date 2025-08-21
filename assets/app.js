@@ -10296,16 +10296,37 @@ initTheme();
   const trigger=document.querySelector('.sf-menu-item-parent[data-mega="categorii"]');
   if(!header||!trigger) return;
   const item=trigger.closest('.sf-menu-item');
-  const panel=item?item.querySelector('.sf-menu__submenu'):null;
+  const panel=item?item.querySelector('.sf-menu__desktop-sub-menu'):null;
   let isOpen=false;
   let closeTimer;
+
+  // Reset mega-menu scroll on open (Categorii)
+  const resetScroll=()=>{
+    if(!mql.matches||!panel) return;
+    const scroller=panel.querySelector('.sf-menu-submenu__content')||panel;
+    scroller.scrollTop=0;
+    scroller.scrollLeft=0;
+    requestAnimationFrame(()=>{
+      scroller.scrollTop=0;
+      scroller.scrollLeft=0;
+    });
+    const onEnd=e=>{
+      if(e.target===panel){
+        scroller.scrollTop=0;
+        scroller.scrollLeft=0;
+      }
+    };
+    panel.addEventListener('transitionend',onEnd,{once:true});
+  };
 
   // Open/close helpers
   const openMenu=()=>{
     isOpen=true;
+    resetScroll();
     header.classList.add('mega-open','sf-mega-active');
     document.querySelectorAll('.sf-menu-item--active').forEach(el=>{el!==item&&el.classList.remove('sf-menu-item--active');});
     item.classList.add('sf-menu-item--active');
+    resetScroll();
   };
   const closeMenu=()=>{
     isOpen=false;
