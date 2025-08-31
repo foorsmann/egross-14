@@ -10271,8 +10271,8 @@ initTheme();
 (function(){
   const mql=window.matchMedia('(min-width:1024px)');
   const header=document.querySelector('.header__wrapper');
-  const trigger=document.querySelector('.sf-menu-item-parent[data-mega="categorii"]');
-  if(!header||!trigger) return;
+  const triggers=document.querySelectorAll('.sf-menu-item-parent.sf-menu-item--mega');
+  if(!header||triggers.length===0||!document.querySelector('.sf-menu__desktop-sub-menu.mm-compact')) return;
 
   function setMegaMaxHeight(){
     if(!mql.matches) return;
@@ -10284,8 +10284,7 @@ initTheme();
 
   ['resize','orientationchange'].forEach(evt=>window.addEventListener(evt,setMegaMaxHeight,{passive:true}));
   document.addEventListener('DOMContentLoaded',setMegaMaxHeight);
-  trigger.addEventListener('mouseenter',setMegaMaxHeight);
-  trigger.addEventListener('focusin',setMegaMaxHeight);
+  triggers.forEach(t=>{t.addEventListener('mouseenter',setMegaMaxHeight);t.addEventListener('focusin',setMegaMaxHeight);});
 })();
 
 // Handle mega menu for "Categorii" via click instead of hover

@@ -253,7 +253,7 @@
                     </a>
                     {% if link.links != blank %}
                         <div
-                            class="sf-menu__submenu sf-menu__desktop-sub-menu pointer-events-none absolute z-50 inset-x-0{% if is_mega == false %} sf-menu__dropdown min-w-max bg-white{% else %}{% endif %}"
+                            class="sf-menu__submenu sf-menu__desktop-sub-menu{% if section.settings.enable_compact_megamenu %} mm-compact{% endif %} pointer-events-none absolute z-50 inset-x-0{% if is_mega == false %} sf-menu__dropdown min-w-max bg-white{% else %}{% endif %}"
                             style="--total-columns: {{ link.links.size }}"
                         >
                             <div class="sf-menu__inner">
@@ -328,7 +328,7 @@
                         {% endif %}
                     </a>
                     {% if is_mega and block_type != blank %}
-                        <div class="sf-menu__submenu sf-menu__desktop-sub-menu absolute z-50 inset-x-0">
+                        <div class="sf-menu__submenu sf-menu__desktop-sub-menu{% if section.settings.enable_compact_megamenu %} mm-compact{% endif %} absolute z-50 inset-x-0">
                             <div class="sf-menu__inner">
                                 <div class="{{ dropdown_container }} mx-auto">
                                     <div class="sf-menu-submenu__content py-12 flex px-4">
