@@ -1,26 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Concept Plus Theme",
+    "theme_name": "WebArc Design Theme",
     "theme_version": "1.0.1",
-    "theme_author": "SGM",
-    "theme_documentation_url": "https://docs.ConceptSGM.co/",
-    "theme_support_url": "https://ConceptSGM.co"
-  },
-  {
-    "name": "Theme License",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Theme key"
-      },
-      {
-        "type": "text",
-        "id": "th_key",
-        "label": "Licenta tema",
-        "info": "Cheie licenta unica. Folosirea cheii pentru un alt magazin poate produce erori si poate atrage dezinstalarea temei automat."
-      }
-    ]
+    "theme_author": "WebArc Design",
+    "theme_documentation_url": "#",
+    "theme_support_url": "#"
   },
   {
     "name": "General Settings",
@@ -1240,7 +1225,7 @@
         "type": "checkbox",
         "id": "show_badge_sale",
         "label": "Show custom tag badges",
-        "info": "How to set up custom product tags? [See how](https://docs.ConceptSGM.co/collections-and-products/product-page/product-tag).",
+          "info": "How to set up custom product tags? [See how](#)",
         "default": false
       },
       {
@@ -2619,7 +2604,7 @@
         "id": "instagram_token",
         "label": "Instagram Token",
         "default": "IGQVJXMTBwYTBabmJsdG9xZA0p2Q3RsLWhYc0RvSFI1cDZA6aG1jWEt5M3VpYVNWdV9tVmIweHF6UHBjNWxvVk1sUFQ4T0NJSHFuWksyVGVzTTB3RkozdGszeDJIbVU3MmVycTJzS1E5VGpZAX0dvVUE0RwZDZD",
-        "info": "[Get Instagram token](https://docs.ConceptSGM.co/theme-sections/instagram)"
+          "info": "[Get Instagram token](#)"
       }
     ]
   },
@@ -2702,7 +2687,7 @@
         "options": [
           {
             "value": "theme",
-            "label": "Built-in by Concept Plus"
+            "label": "Built-in by WebArc Design"
           },
           {
             "value": "growave",

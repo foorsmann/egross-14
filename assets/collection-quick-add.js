@@ -533,7 +533,7 @@ async function handleDelegatedAddToCart(e){
     var pid = (qtyEl && qtyEl.dataset.collectionProductId) || card.getAttribute('data-collection-product-id') || card.getAttribute('data-product-id');
 
     if(available <= 0){
-      error.show(window.ConceptSGMStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
+      error.show(window.WebArcDesignStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
       if(typeof window.applyCappedQtyState === 'function'){
         window.applyCappedQtyState({ dataset: { productId: pid } });
       }else if(qtyEl){
@@ -570,7 +570,7 @@ async function handleDelegatedAddToCart(e){
     var body;
     try{ body = await res.json(); }catch(parseErr){ body = {}; }
     if(!res.ok || body.status){
-      var msg = body.description || body.message || body.errors || window.ConceptSGMStrings?.cartError || 'Error';
+      var msg = body.description || body.message || body.errors || window.WebArcDesignStrings?.cartError || 'Error';
       if(typeof msg === 'object'){
         if(Array.isArray(msg)) msg = msg[0];
         else{
@@ -579,13 +579,13 @@ async function handleDelegatedAddToCart(e){
         }
       }
       if(!msg || typeof msg !== 'string' || /<\/?html/i.test(msg)){
-        msg = window.ConceptSGMStrings?.cartError || 'Error';
+        msg = window.WebArcDesignStrings?.cartError || 'Error';
       }
       error.show(msg);
       return;
     }
 
-    window.ConceptSGMEvents?.emit('COLLECTION_ITEM_ADDED', body);
+    window.WebArcDesignEvents?.emit('COLLECTION_ITEM_ADDED', body);
     window.Shopify?.onItemAdded?.(body);
     document.dispatchEvent(new CustomEvent('cart:updated', { detail:{ source:'collection-quick-add' } }));
 
@@ -605,7 +605,7 @@ async function handleDelegatedAddToCart(e){
 
       // mesajul de limită doar dacă s-a depășit (nu și la egal cu disponibilul)
       if (exceed) {
-        error.show(window.ConceptSGMStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
+        error.show(window.WebArcDesignStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
       } else {
         error.hide();
       }
@@ -623,7 +623,7 @@ async function handleDelegatedAddToCart(e){
       }
     }
     if(!msg || typeof msg !== 'string' || /<\/?html/i.test(msg)){
-      msg = window.ConceptSGMStrings?.cartError || 'Error';
+      msg = window.WebArcDesignStrings?.cartError || 'Error';
     }
     error.show(msg);
   }finally{
@@ -777,7 +777,7 @@ async function handleDelegatedAddToCart(e){
       const formData = new FormData(this.form);
       const variantId = parseInt(formData.get('id'),10);
       if(!variantId){
-        this.error.show(window.ConceptSGMStrings?.noVariant || 'Selecteaza o varianta');
+        this.error.show(window.WebArcDesignStrings?.noVariant || 'Selecteaza o varianta');
         this.toggleSpinner(false);
         return;
       }
@@ -793,7 +793,7 @@ async function handleDelegatedAddToCart(e){
       let resetQty = false;
       let sendQty = requestedQty;
       if(available <= 0){
-        this.error.show(window.ConceptSGMStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
+        this.error.show(window.WebArcDesignStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
         this.toggleSpinner(false);
         return;
       }
@@ -804,7 +804,7 @@ async function handleDelegatedAddToCart(e){
         if (!isFinite(requested) || requested <= 0) requested = 1;
         sendQty = requested > available ? available : requested;
         if (requested > available) {
-          this.error.show(window.ConceptSGMStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
+          this.error.show(window.WebArcDesignStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
           resetQty = true;
         } else {
           resetQty = sendQty >= available;
@@ -814,7 +814,7 @@ async function handleDelegatedAddToCart(e){
         if(requestedQty >= available){
           if(requestedQty > available){
             sendQty = available;
-            this.error.show(window.ConceptSGMStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
+            this.error.show(window.WebArcDesignStrings?.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.');
           } else {
             sendQty = available;
           }
@@ -832,7 +832,7 @@ async function handleDelegatedAddToCart(e){
         headers:{Accept:'application/javascript','X-Requested-With':'XMLHttpRequest'},
         body: formData
       };
-      const settings = window.ConceptSGMSettings || {};
+      const settings = window.WebArcDesignSettings || {};
         fetch(`${settings.routes?.cart_add_url || '/cart/add'}`, config)
           .then(async r => {
             let body;
@@ -853,7 +853,7 @@ async function handleDelegatedAddToCart(e){
             if(statusCode >= 400 || body.status){
               let msg = body.description || body.message || statusText;
               if(msg && typeof msg === 'string' && /<\/?html/i.test(msg)){
-                msg = window.ConceptSGMStrings?.cartError || 'Error';
+                msg = window.WebArcDesignStrings?.cartError || 'Error';
               }
               const errData = body.errors;
               if(!msg && errData){
@@ -869,7 +869,7 @@ async function handleDelegatedAddToCart(e){
               }
               this.error.show(msg);
             }else{
-              window.ConceptSGMEvents?.emit('COLLECTION_ITEM_ADDED', body);
+              window.WebArcDesignEvents?.emit('COLLECTION_ITEM_ADDED', body);
               window.Shopify?.onItemAdded?.(body);
               if(resetQty){
                 const pid = this.dataset.collectionProductId;
@@ -885,7 +885,7 @@ async function handleDelegatedAddToCart(e){
           .catch(err => {
             let msg = err && err.message || '';
             if(!msg || /<\/?html/i.test(msg)){
-              msg = window.ConceptSGMStrings?.cartError || 'Error';
+              msg = window.WebArcDesignStrings?.cartError || 'Error';
             }
             this.error.show(msg);
           })

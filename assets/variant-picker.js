@@ -388,12 +388,12 @@ if (!customElements.get("variant-picker")) {
         this.updateVariantInput();
         this.updateProductMeta();
         this.updatePrice();
-        this.updateButton(!this.currentVariant.available, window.ConceptSGMStrings.soldOut);
+        this.updateButton(!this.currentVariant.available, window.WebArcDesignStrings.soldOut);
         this.hideSoldOutAndUnavailableOptions();
         this.updateStockCountdownByVariant(this.currentVariant);
       }
 
-      window.ConceptSGMEvents.emit(`${this.productId}__VARIANT_CHANGE`, this.currentVariant, this);
+      window.WebArcDesignEvents.emit(`${this.productId}__VARIANT_CHANGE`, this.currentVariant, this);
     }
 
     getDataImageVariant(variantId) {
@@ -597,7 +597,7 @@ if (!customElements.get("variant-picker")) {
         saleBadge: ".f-price__badge-sale",
         saleAmount: "[data-saved-price]"
       };
-      const money_format = window.ConceptSGMSettings.money_format;
+      const money_format = window.WebArcDesignSettings.money_format;
       const {
         priceWrapper,
         salePrice,
@@ -675,9 +675,9 @@ if (!customElements.get("variant-picker")) {
           dynamicCheckout?.classList?.remove?.('disabled');
 
           if (preorder === "true") {
-            addButtonText.textContent = window.ConceptSGMStrings.preorder;
+            addButtonText.textContent = window.WebArcDesignStrings.preorder;
           } else {
-            addButtonText.textContent = window.ConceptSGMStrings.addToCart;
+            addButtonText.textContent = window.WebArcDesignStrings.addToCart;
           }
         }
       });
@@ -692,7 +692,7 @@ if (!customElements.get("variant-picker")) {
       const {
         inStock,
         outOfStock
-      } = window.ConceptSGMStrings;
+      } = window.WebArcDesignStrings;
       const productAvailability = this.section?.querySelector(this.selectors.productAvailability);
       const productSku = this.section?.querySelector(this.selectors.productSku);
 
@@ -717,7 +717,7 @@ if (!customElements.get("variant-picker")) {
       const addButtonText = button.querySelector('[name="add"] > span.atc-text');
       const priceWrapper = this.section.querySelector(".f-price");
       if (!addButton) return;
-      addButtonText.textContent = window.ConceptSGMStrings.unavailable;
+      addButtonText.textContent = window.WebArcDesignStrings.unavailable;
       if (priceWrapper) priceWrapper.classList.add("visibility-hidden");
     }
 
@@ -754,7 +754,7 @@ if (!customElements.get("variant-picker")) {
       const {
         _colorSwatches = [],
         _imageSwatches = []
-      } = window.ConceptSGMSettings;
+      } = window.WebArcDesignSettings;
       this.domNodes.optionNodes.forEach(optNode => {
         const {
           optionType,

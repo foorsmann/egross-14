@@ -57,11 +57,11 @@ if (!customElements.get("product-form")) {
 
           if (missing.length > 0) {
             e.stopPropagation();
-            window.ConceptSGMTheme.Notification.show({
+            window.WebArcDesignTheme.Notification.show({
               target: this.domNodes.errorWrapper,
               method: 'appendChild',
               type: 'warning',
-              message: window.ConceptSGMStrings.requiredField,
+              message: window.WebArcDesignStrings.requiredField,
               delay: 100
             });
           }
@@ -77,11 +77,11 @@ if (!customElements.get("product-form")) {
       if (missing?.length > 0) {
         /* Missing field warnings removed */
         this.toggleSpinner(false);
-        return window.ConceptSGMTheme.Notification.show({
+        return window.WebArcDesignTheme.Notification.show({
           target: this?.domNodes?.errorWrapper,
           method: "appendChild",
           type: "warning",
-          message: window.ConceptSGMStrings.requiredField
+          message: window.WebArcDesignStrings.requiredField
         });
       }
 
@@ -113,11 +113,11 @@ if (!customElements.get("product-form")) {
       const availableToAdd = Math.max(maxQty - cartQty, 0);
       if (availableToAdd <= 0) {
         this.toggleSpinner(false);
-        return window.ConceptSGMTheme.Notification.show({
+        return window.WebArcDesignTheme.Notification.show({
           target: this?.domNodes?.errorWrapper,
           method: "appendChild",
           type: "warning",
-          message: window.ConceptSGMStrings.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.'
+          message: window.WebArcDesignStrings.cartLimit || 'Cantitatea maxima pentru acest produs este deja in cos.'
         });
       }
 
@@ -140,12 +140,12 @@ if (!customElements.get("product-form")) {
       };
 
       const {
-        ConceptSGMSettings,
-        ConceptSGMStrings
+        WebArcDesignSettings,
+        WebArcDesignStrings
       } = window;
 
-      if (ConceptSGMSettings.use_ajax_atc) {
-        fetch(`${ConceptSGMSettings.routes.cart_add_url}`, config)
+      if (WebArcDesignSettings.use_ajax_atc) {
+        fetch(`${WebArcDesignSettings.routes.cart_add_url}`, config)
           .then(async r => {
             let body;
             try {
@@ -163,11 +163,11 @@ if (!customElements.get("product-form")) {
           })
           .then(({ statusCode, body }) => {
             if (statusCode >= 400 || body.status) {
-              let msg = body.description || body.message || body.errors || window.ConceptSGMStrings.cartError;
+              let msg = body.description || body.message || body.errors || window.WebArcDesignStrings.cartError;
               if (statusCode === 429) {
                 msg = 'Ati trimis prea multe cereri. Va rugam sa incercati din nou mai tarziu.';
               }
-              return window.ConceptSGMTheme.Notification.show({
+              return window.WebArcDesignTheme.Notification.show({
                 target: this.notificationType === "toast" ? document.body : this.domNodes.errorWrapper,
                 method: "appendChild",
                 type: "warning",
@@ -177,18 +177,18 @@ if (!customElements.get("product-form")) {
               });
             }
 
-            if (!ConceptSGMSettings.enable_cart_drawer) {
-              window.ConceptSGMTheme.Notification.show({
+            if (!WebArcDesignSettings.enable_cart_drawer) {
+              window.WebArcDesignTheme.Notification.show({
                 target: this.domNodes.errorWrapper,
                 method: "appendChild",
                 type: "success",
-                message: window.ConceptSGMStrings.itemAdded,
+                message: window.WebArcDesignStrings.itemAdded,
                 last: 3000,
                 sticky: this.notificationType === "toast"
               });
             }
 
-            window.ConceptSGMEvents.emit(`ON_ITEM_ADDED`, body);
+            window.WebArcDesignEvents.emit(`ON_ITEM_ADDED`, body);
             window.Shopify.onItemAdded(body);
             if (resetQty && qtyInput) {
               if (typeof applyCappedQtyState === 'function') {

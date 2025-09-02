@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -625,11 +625,11 @@ class Confetti {
 
 /* harmony default export */ var confetti = (Confetti);
 ;// CONCATENATED MODULE: ./src/js/modules/cartgoal.js
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
 /* provided dependency */ var createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 /* provided dependency */ var i18n = __webpack_require__(7345)["default"];
 
 // eslint-disable-next-line no-unused-vars
@@ -662,8 +662,8 @@ class CartGoal {
     (0,defineProperty/* default */.Z)(this, "enabled", true);
 
     (0,defineProperty/* default */.Z)(this, "init", () => {
-      this.enabled = ConceptSGMTheme?.Cart?.cart.requires_shipping;
-      this.updateProgress(window.FoxKit?.newCart || ConceptSGMTheme?.Cart?.cart);
+      this.enabled = WebArcDesignTheme?.Cart?.cart.requires_shipping;
+      this.updateProgress(window.FoxKit?.newCart || WebArcDesignTheme?.Cart?.cart);
       this.listenCartChange();
       this.confettiShow = this.goalDone;
     });
@@ -676,13 +676,13 @@ class CartGoal {
       this.goalTitle = this.goalDone ? this.reached_message : this.message;
       this.domNodes.icon.innerHTML = this.goalDone ? this.doneIcon : this.defaultIcon;
       this.domNodes.cartGoal.style.setProperty('--progress', this.progress + '%');
-      this.goalTitle = this.goalTitle.replace('{{variable}}', `<strong>${formatMoney(this.goalLeft, ConceptSGMSettings.money_format)}</strong>`);
+      this.goalTitle = this.goalTitle.replace('{{variable}}', `<strong>${formatMoney(this.goalLeft, WebArcDesignSettings.money_format)}</strong>`);
       setTimeout(() => this.domNodes.title.innerHTML = this.goalTitle, 500);
       this.setDone();
     });
 
     (0,defineProperty/* default */.Z)(this, "listenCartChange", () => {
-      ConceptSGMEvents.subscribe('ON_FOX_CART_UPDATE', async cart => {
+      WebArcDesignEvents.subscribe('ON_FOX_CART_UPDATE', async cart => {
         if (cart) {
           this.domNodes = queryDomNodes(this.selectors);
           this.enabled = cart.requires_shipping;
@@ -718,7 +718,7 @@ class CartGoal {
     });
 
     (0,defineProperty/* default */.Z)(this, "showConfetti", () => {
-      if (this.enabled && !this.confettiShow && ConceptSGMSettings.template !== 'cart') {
+      if (this.enabled && !this.confettiShow && WebArcDesignSettings.template !== 'cart') {
         new confetti(this.domNodes.cartDrawer);
         this.confettiShow = true;
       }
@@ -727,7 +727,7 @@ class CartGoal {
     (0,defineProperty/* default */.Z)(this, "addShippingNote", () => {
       this.shippingNote = createElement("div", {
         className: 'f-cartgoal-free-shipping flex justify-between items-center'
-      }, createElement("span", null, ConceptSGMStrings.shipping, ":"), " ", i18n.tr('free'));
+      }, createElement("span", null, WebArcDesignStrings.shipping, ":"), " ", i18n.tr('free'));
       this.domNodes.cartSummary.insertBefore(this.shippingNote, this.domNodes.cartSubtotal);
       this.domNodes.shippingNote?.classList.add('hidden');
     });
