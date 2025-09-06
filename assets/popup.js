@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -1497,7 +1497,7 @@ function load_assets_loadAssets(param) {
   });
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/index.js
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var createElement = __webpack_require__(6295)["default"];
 
 
@@ -1648,7 +1648,7 @@ function getVideoURL(id, host) {
 function showCookieConsent() {
   const {
     show_cookie_consent
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const cookieAccepted = getCookie('cookieconsent_status');
 
   if (show_cookie_consent && !cookieAccepted) {
@@ -1720,8 +1720,8 @@ function addRecentViewedProduct() {
   const cookies = getCookie('sf-recent-viewed-products');
   let products = cookies ? JSON.parse(cookies) : [];
 
-  if (products.indexOf(ConceptSGMSettings.productHandle) === -1) {
-    products.unshift(ConceptSGMSettings.productHandle);
+  if (products.indexOf(WebArcDesignSettings.productHandle) === -1) {
+    products.unshift(WebArcDesignSettings.productHandle);
     products = products.slice(0, 20);
     setCookie('sf-recent-viewed-products', JSON.stringify(products));
   }
@@ -1771,22 +1771,22 @@ function getParams() {
 
 const setSwatchesOptions = () => {
   try {
-    ConceptSGMSettings._colorSwatches = [];
-    ConceptSGMSettings._imageSwatches = [];
-    ConceptSGMSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
+    WebArcDesignSettings._colorSwatches = [];
+    WebArcDesignSettings._imageSwatches = [];
+    WebArcDesignSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
       const [key, value] = colorSwatch.split(':');
 
-      ConceptSGMSettings._colorSwatches.push({
+      WebArcDesignSettings._colorSwatches.push({
         key: key.trim().toLowerCase(),
         value: value?.trim?.() || ''
       });
     });
-    Object.keys(ConceptSGMSettings).forEach(key => {
+    Object.keys(WebArcDesignSettings).forEach(key => {
       if (key.includes('filter_color') && !key.includes('.png')) {
-        if (ConceptSGMSettings[`${key}.png`]) {
-          ConceptSGMSettings._imageSwatches.push({
-            key: ConceptSGMSettings[key].toLowerCase(),
-            value: ConceptSGMSettings[`${key}.png`]
+        if (WebArcDesignSettings[`${key}.png`]) {
+          WebArcDesignSettings._imageSwatches.push({
+            key: WebArcDesignSettings[key].toLowerCase(),
+            value: WebArcDesignSettings[`${key}.png`]
           });
         }
       }
@@ -1810,7 +1810,7 @@ const formatUrl = (pageType, handle, query) => {
   let url;
   const {
     routes
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const root = routes.root.endsWith('/') ? '' : routes.root;
   url = `${root}/${pageType}/${handle}`;
   if (query) url += `?${query}`;
@@ -2307,10 +2307,10 @@ function setRepeatOpen(saveKey, saveValue, repeat) {
   setCookie(saveKey, JSON.stringify(saveValue), expires);
 }
 ;// CONCATENATED MODULE: ./src/js/foxkit/helpers.js
-/* provided dependency */ var helpers_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var helpers_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var helpers_createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var i18n = __webpack_require__(7345)["default"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 if (!String.prototype.capitalize) {
   String.prototype.capitalize = function () {
     return this.replace(this[0], this[0]?.toUpperCase?.());
@@ -2333,7 +2333,7 @@ function handleSubscribe(data) {
 }
 async function applyDiscountCode(code) {
   if (code) {
-    fetch(`${helpers_ConceptSGMSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
+    fetch(`${helpers_WebArcDesignSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
   }
 }
 function copyToClipboard(value, button) {
@@ -2341,7 +2341,7 @@ function copyToClipboard(value, button) {
 
   if (button) {
     button.classList.add('copied');
-    button.innerText = window.ConceptSGMStrings.copied || 'Copied';
+    button.innerText = window.WebArcDesignStrings.copied || 'Copied';
   }
 }
 function insertAfter(newNode, referenceNode) {
@@ -2370,7 +2370,7 @@ function addToCart() {
 }
 function getDiscountSummary(discount) {
   const discountText = helpers_createElement("span", null);
-  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), helpers_ConceptSGMSettings.money_format);
+  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), helpers_WebArcDesignSettings.money_format);
   discountText.innerHTML = i18n.tr('discount_summary', {
     'discount_value': discountValue
   });
@@ -2397,7 +2397,7 @@ const updateCartAttributes = offer => {
       if (!offer || !offer?.offer_id) return;
       const {
         attributes = {}
-      } = ConceptSGMTheme?.Cart?.cart || {};
+      } = WebArcDesignTheme?.Cart?.cart || {};
       let {
         _foxCartDiscounts
       } = attributes;

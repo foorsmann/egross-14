@@ -7,25 +7,25 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -1036,7 +1036,7 @@ if (window.Shopify.designMode) {
 }
 ;// CONCATENATED MODULE: ./src/js/components/SaleProgress.jsx
 /* provided dependency */ var createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 function SaleProgress(_ref) {
   let {
     settings,
@@ -1081,11 +1081,11 @@ function SaleProgress(_ref) {
     }
   })), createElement("div", {
     className: "pcard-sale__text flex justify-between mt-2"
-  }, createElement("div", null, createElement("span", null, ConceptSGMStrings.sold, ": "), createElement("strong", {
+  }, createElement("div", null, createElement("span", null, WebArcDesignStrings.sold, ": "), createElement("strong", {
     dataSet: {
       saleNumber: ''
     }
-  }, soldNumb || 0)), createElement("div", null, createElement("span", null, ConceptSGMStrings.available, ": "), createElement("strong", {
+  }, soldNumb || 0)), createElement("div", null, createElement("span", null, WebArcDesignStrings.available, ": "), createElement("strong", {
     dataSet: {
       availableNumber: ''
     }
@@ -1198,7 +1198,7 @@ function load_assets_loadAssets(param) {
 // EXTERNAL MODULE: ./node_modules/scroll-into-view/scrollIntoView.js
 var scroll_into_view_scrollIntoView = __webpack_require__(643);
 ;// CONCATENATED MODULE: ./src/js/utilities/index.js
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var utilities_createElement = __webpack_require__(6295)["default"];
 
 
@@ -1349,7 +1349,7 @@ function getVideoURL(id, host) {
 function showCookieConsent() {
   const {
     show_cookie_consent
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const cookieAccepted = getCookie('cookieconsent_status');
 
   if (show_cookie_consent && !cookieAccepted) {
@@ -1421,8 +1421,8 @@ function addRecentViewedProduct() {
   const cookies = getCookie('sf-recent-viewed-products');
   let products = cookies ? JSON.parse(cookies) : [];
 
-  if (products.indexOf(ConceptSGMSettings.productHandle) === -1) {
-    products.unshift(ConceptSGMSettings.productHandle);
+  if (products.indexOf(WebArcDesignSettings.productHandle) === -1) {
+    products.unshift(WebArcDesignSettings.productHandle);
     products = products.slice(0, 20);
     setCookie('sf-recent-viewed-products', JSON.stringify(products));
   }
@@ -1472,22 +1472,22 @@ function getParams() {
 
 const setSwatchesOptions = () => {
   try {
-    ConceptSGMSettings._colorSwatches = [];
-    ConceptSGMSettings._imageSwatches = [];
-    ConceptSGMSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
+    WebArcDesignSettings._colorSwatches = [];
+    WebArcDesignSettings._imageSwatches = [];
+    WebArcDesignSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
       const [key, value] = colorSwatch.split(':');
 
-      ConceptSGMSettings._colorSwatches.push({
+      WebArcDesignSettings._colorSwatches.push({
         key: key.trim().toLowerCase(),
         value: value?.trim?.() || ''
       });
     });
-    Object.keys(ConceptSGMSettings).forEach(key => {
+    Object.keys(WebArcDesignSettings).forEach(key => {
       if (key.includes('filter_color') && !key.includes('.png')) {
-        if (ConceptSGMSettings[`${key}.png`]) {
-          ConceptSGMSettings._imageSwatches.push({
-            key: ConceptSGMSettings[key].toLowerCase(),
-            value: ConceptSGMSettings[`${key}.png`]
+        if (WebArcDesignSettings[`${key}.png`]) {
+          WebArcDesignSettings._imageSwatches.push({
+            key: WebArcDesignSettings[key].toLowerCase(),
+            value: WebArcDesignSettings[`${key}.png`]
           });
         }
       }
@@ -1511,7 +1511,7 @@ const formatUrl = (pageType, handle, query) => {
   let url;
   const {
     routes
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const root = routes.root.endsWith('/') ? '' : routes.root;
   url = `${root}/${pageType}/${handle}`;
   if (query) url += `?${query}`;
@@ -1533,9 +1533,9 @@ function runHelpers() {
   }
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/section.js
-/* provided dependency */ var ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var section_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var section_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 function initSlider(_ref) {
@@ -1567,7 +1567,7 @@ function initSlider(_ref) {
 
   const _initSlider = () => {
     loadAssets(['swiper.css', 'swiper.js']).then(() => {
-      slider = new ConceptSGMLibs.Swiper(sliderContainer, {
+      slider = new WebArcDesignLibs.Swiper(sliderContainer, {
         init: false,
         autoplay: autoplay ? {
           delay: 4000,
@@ -1641,13 +1641,13 @@ function initSlider(_ref) {
           nextButton && nextButton.addEventListener('click', () => slider.slideNext());
         }
 
-        if (!loop && prevButton) prevButton.disabled = true; // ConceptSGMTheme.Products.initProductForms({ context: container })
+        if (!loop && prevButton) prevButton.disabled = true; // WebArcDesignTheme.Products.initProductForms({ context: container })
         // .then(() => {
         // })
         // .catch(console.error)
 
-        ConceptSGMTheme.CompareProduct?.setCompareButtonsState();
-        ConceptSGMTheme.Wishlist?.setWishlistButtonsState();
+        WebArcDesignTheme.CompareProduct?.setCompareButtonsState();
+        WebArcDesignTheme.Wishlist?.setWishlistButtonsState();
       }); // Init swiper
 
       slider.init();
@@ -1675,7 +1675,7 @@ function initSlider(_ref) {
   };
 }
 function fetchCountDown(collectionID) {
-  const appURL = section_ConceptSGMSettings.foxkitAppURL ? `https://${section_ConceptSGMSettings.foxkitAppURL}` : '';
+  const appURL = section_WebArcDesignSettings.foxkitAppURL ? `https://${section_WebArcDesignSettings.foxkitAppURL}` : '';
   return new Promise((resolve, reject) => {
     let requestUrl = `${appURL}/api/public/countdown?shop=${window.Shopify?.shop}&collectionIds=${collectionID}`;
     fetch(requestUrl).then(response => response.json()).then(resolve).catch(reject);
@@ -1683,7 +1683,7 @@ function fetchCountDown(collectionID) {
 }
 ;// CONCATENATED MODULE: ./src/js/sections/foxkit-flashsale.js
 /* provided dependency */ var foxkit_flashsale_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var foxkit_flashsale_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var foxkit_flashsale_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 
@@ -1732,7 +1732,7 @@ register('foxkit-flashsale', {
   initCountdown: function () {
     this.container.classList.add(this.settings?.cdt_style);
     load_assets_loadAssets('countdown.js').then(() => {
-      this.Countdown = new foxkit_flashsale_ConceptSGMTheme.ProductCountdown(this.settings);
+      this.Countdown = new foxkit_flashsale_WebArcDesignTheme.ProductCountdown(this.settings);
       if (this.Countdown?.ended) this.container.classList.add('hidden');
     });
   }

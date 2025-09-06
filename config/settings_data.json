@@ -1,15 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
-    "th_key": "BR843 CPX421 IG3JJ 10ZVZ 4XC31 VTM45 KKD332",
     "favicon": "shopify://shop_images/favicon-egross-t.png",
     "double_qty_btn_label": "Adauga inca {min_qty}",
     "container_width": 1200,
@@ -94,7 +84,7 @@
     "share_facebook": true,
     "share_pinterest": true,
     "contact_phone_number": "0729 554 378",
-    "contact_email": "egross.romania@gmail.com",
+    "contact_email": "webarcdesign.ro@gmail.com",
     "find_store": "contact",
     "social_twitter_link": "",
     "social_twitter_label": "",
