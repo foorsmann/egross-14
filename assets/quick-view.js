@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -3205,7 +3205,7 @@ function cleanEscapedString(input) {
   return input.match(escapedStringRegExp)[1].replace(doubleQuoteRegExp, "'");
 }
 ;// CONCATENATED MODULE: ./src/js/components/PreOrderNote.jsx
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var PreOrderNote_createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var i18n = __webpack_require__(7345)["default"];
 
@@ -3223,7 +3223,7 @@ function PreOrderNote(_ref) {
   } = settings;
   const {
     money_format
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const rate = Number(window.Shopify?.currency?.rate || 1);
   const discountValue = discount.type === 'PERCENTAGE' ? `${discount.value}%` : formatMoney(discount.value * 100 * rate, money_format);
   const discountTitle = PreOrderNote_createElement("li", null);
@@ -3255,14 +3255,14 @@ function PreOrderNote(_ref) {
 }
 ;// CONCATENATED MODULE: ./src/js/modules/quick-view.js
 /* provided dependency */ var quick_view_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 
 
 const {
-  ConceptSGMThemeStyles,
-  ConceptSGMThemeScripts
+  WebArcDesignThemeStyles,
+  WebArcDesignThemeScripts
 } = window;
 
 class QuickView {
@@ -3294,22 +3294,22 @@ class QuickView {
         if (productHandle) this.fetchHtml(productHandle);
       }
     });
-    window.ConceptSGMEvents.subscribe(`ON_ITEM_ADDED`, () => {
-      if (this.modal) ConceptSGMTheme.ProductQuickView.close();
+    window.WebArcDesignEvents.subscribe(`ON_ITEM_ADDED`, () => {
+      if (this.modal) WebArcDesignTheme.ProductQuickView.close();
     });
   }
 
   fetchHtml(productHandle) {
-    loadAssetsNew([ConceptSGMThemeStyles.product], "quick-view-assets");
+    loadAssetsNew([WebArcDesignThemeStyles.product], "quick-view-assets");
     fetchSection("product-quickview", {
-      url: `${window.ConceptSGMSettings.base_url}products/${productHandle}`
+      url: `${window.WebArcDesignSettings.base_url}products/${productHandle}`
     }).then(html => {
       this.modalContent = html.querySelector(".sf-pqv");
       const firstModel = html.querySelector("product-model");
       this.mediaGallery = this.modalContent.querySelector("media-gallery"); // document.body.appendChild(this.modalContent)
 
       console.log(this.modalContent, this.mediaGallery);
-      loadAssetsNew([ConceptSGMThemeScripts.productMedia, ConceptSGMThemeScripts.variantsPicker], "variants-picker", () => {
+      loadAssetsNew([WebArcDesignThemeScripts.productMedia, WebArcDesignThemeScripts.variantsPicker], "variants-picker", () => {
         // if (quickView) {
         this.modal.appendChild(this.modalContent); // Modal.setSizes('w-5/6 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2')
 
@@ -3328,7 +3328,7 @@ class QuickView {
       });
 
       if (firstModel) {
-        loadAssetsNew([ConceptSGMThemeScripts.productModel, "https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"], "product-model-assets");
+        loadAssetsNew([WebArcDesignThemeScripts.productModel, "https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"], "product-model-assets");
       }
     }).catch(console.error);
   }
@@ -3350,7 +3350,7 @@ class QuickView {
 
 }
 
-ConceptSGMTheme.ProductQuickView = new QuickView();
+WebArcDesignTheme.ProductQuickView = new QuickView();
 }();
 /******/ })()
 ;

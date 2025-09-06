@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -920,10 +920,10 @@ function removeProtocol(path) {
   return path.replace(/http(s)?:/, '');
 }
 ;// CONCATENATED MODULE: ./src/js/foxkit/helpers.js
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var i18n = __webpack_require__(7345)["default"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 if (!String.prototype.capitalize) {
   String.prototype.capitalize = function () {
     return this.replace(this[0], this[0]?.toUpperCase?.());
@@ -946,7 +946,7 @@ function handleSubscribe(data) {
 }
 async function applyDiscountCode(code) {
   if (code) {
-    fetch(`${ConceptSGMSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
+    fetch(`${WebArcDesignSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
   }
 }
 function copyToClipboard(value, button) {
@@ -954,7 +954,7 @@ function copyToClipboard(value, button) {
 
   if (button) {
     button.classList.add('copied');
-    button.innerText = window.ConceptSGMStrings.copied || 'Copied';
+    button.innerText = window.WebArcDesignStrings.copied || 'Copied';
   }
 }
 function insertAfter(newNode, referenceNode) {
@@ -983,7 +983,7 @@ function addToCart() {
 }
 function getDiscountSummary(discount) {
   const discountText = createElement("span", null);
-  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), ConceptSGMSettings.money_format);
+  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), WebArcDesignSettings.money_format);
   discountText.innerHTML = i18n.tr('discount_summary', {
     'discount_value': discountValue
   });
@@ -1010,7 +1010,7 @@ const updateCartAttributes = offer => {
       if (!offer || !offer?.offer_id) return;
       const {
         attributes = {}
-      } = ConceptSGMTheme?.Cart?.cart || {};
+      } = WebArcDesignTheme?.Cart?.cart || {};
       let {
         _foxCartDiscounts
       } = attributes;
@@ -1055,8 +1055,8 @@ const isMobile = () => {
 ;// CONCATENATED MODULE: ./src/js/components/InCartUpsell.jsx
 /* provided dependency */ var InCartUpsell_createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var InCartUpsell_i18n = __webpack_require__(7345)["default"];
-/* provided dependency */ var InCartUpsell_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var InCartUpsell_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 
 
 function InCartUpSell(_ref) {
@@ -1100,9 +1100,9 @@ function InCartUpSell(_ref) {
     } = product;
 
     if (price_max === price_min) {
-      priceNode.innerHTML = formatMoney(price_max, InCartUpsell_ConceptSGMSettings.money_format);
+      priceNode.innerHTML = formatMoney(price_max, InCartUpsell_WebArcDesignSettings.money_format);
     } else {
-      priceNode.innerHTML = `from ${formatMoney(price_min, InCartUpsell_ConceptSGMSettings.money_format)}`;
+      priceNode.innerHTML = `from ${formatMoney(price_min, InCartUpsell_WebArcDesignSettings.money_format)}`;
     }
 
     console.log(product, 'selected_or_first_available_variant');
@@ -1191,7 +1191,7 @@ function InCartUpSell(_ref) {
       d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
     }))), InCartUpsell_createElement("span", {
       className: "atc-text"
-    }, available ? InCartUpsell_i18n.tr('add_button') : ConceptSGMStrings.soldOut)))));
+    }, available ? InCartUpsell_i18n.tr('add_button') : WebArcDesignStrings.soldOut)))));
   })));
 }
 // EXTERNAL MODULE: ./node_modules/scroll-into-view/scrollIntoView.js
@@ -1301,7 +1301,7 @@ function load_assets_loadAssets(param) {
   });
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/index.js
-/* provided dependency */ var utilities_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var utilities_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var utilities_createElement = __webpack_require__(6295)["default"];
 
 
@@ -1452,7 +1452,7 @@ function getVideoURL(id, host) {
 function showCookieConsent() {
   const {
     show_cookie_consent
-  } = utilities_ConceptSGMSettings;
+  } = utilities_WebArcDesignSettings;
   const cookieAccepted = getCookie('cookieconsent_status');
 
   if (show_cookie_consent && !cookieAccepted) {
@@ -1524,8 +1524,8 @@ function addRecentViewedProduct() {
   const cookies = getCookie('sf-recent-viewed-products');
   let products = cookies ? JSON.parse(cookies) : [];
 
-  if (products.indexOf(utilities_ConceptSGMSettings.productHandle) === -1) {
-    products.unshift(utilities_ConceptSGMSettings.productHandle);
+  if (products.indexOf(utilities_WebArcDesignSettings.productHandle) === -1) {
+    products.unshift(utilities_WebArcDesignSettings.productHandle);
     products = products.slice(0, 20);
     setCookie('sf-recent-viewed-products', JSON.stringify(products));
   }
@@ -1575,22 +1575,22 @@ function getParams() {
 
 const setSwatchesOptions = () => {
   try {
-    utilities_ConceptSGMSettings._colorSwatches = [];
-    utilities_ConceptSGMSettings._imageSwatches = [];
-    utilities_ConceptSGMSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
+    utilities_WebArcDesignSettings._colorSwatches = [];
+    utilities_WebArcDesignSettings._imageSwatches = [];
+    utilities_WebArcDesignSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
       const [key, value] = colorSwatch.split(':');
 
-      utilities_ConceptSGMSettings._colorSwatches.push({
+      utilities_WebArcDesignSettings._colorSwatches.push({
         key: key.trim().toLowerCase(),
         value: value?.trim?.() || ''
       });
     });
-    Object.keys(utilities_ConceptSGMSettings).forEach(key => {
+    Object.keys(utilities_WebArcDesignSettings).forEach(key => {
       if (key.includes('filter_color') && !key.includes('.png')) {
-        if (utilities_ConceptSGMSettings[`${key}.png`]) {
-          utilities_ConceptSGMSettings._imageSwatches.push({
-            key: utilities_ConceptSGMSettings[key].toLowerCase(),
-            value: utilities_ConceptSGMSettings[`${key}.png`]
+        if (utilities_WebArcDesignSettings[`${key}.png`]) {
+          utilities_WebArcDesignSettings._imageSwatches.push({
+            key: utilities_WebArcDesignSettings[key].toLowerCase(),
+            value: utilities_WebArcDesignSettings[`${key}.png`]
           });
         }
       }
@@ -1614,7 +1614,7 @@ const utilities_formatUrl = (pageType, handle, query) => {
   let url;
   const {
     routes
-  } = utilities_ConceptSGMSettings;
+  } = utilities_WebArcDesignSettings;
   const root = routes.root.endsWith('/') ? '' : routes.root;
   url = `${root}/${pageType}/${handle}`;
   if (query) url += `?${query}`;
@@ -1637,7 +1637,7 @@ function runHelpers() {
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/product-fns.js
 /* provided dependency */ var product_fns_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var product_fns_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var product_fns_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 const themeProducts = window._themeProducts || {};
 const fetchProductByHandle = async handle => {
@@ -1733,7 +1733,7 @@ const getProductInstances = query => {
     fieldSearch = 'handle';
   }
 
-  return product_fns_ConceptSGMTheme.Products.productInstances.filter(pro => pro.productData?.[fieldSearch] === query);
+  return product_fns_WebArcDesignTheme.Products.productInstances.filter(pro => pro.productData?.[fieldSearch] === query);
 };
 window._getProductInstances = getProductInstances;
 const isValidColor = color => {
@@ -1754,9 +1754,9 @@ const getOptionValueFromOptionNode = optNode => {
   return optNode.innerText.trim();
 };
 ;// CONCATENATED MODULE: ./src/js/modules/incart.js
-/* provided dependency */ var incart_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var incart_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
+/* provided dependency */ var incart_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var incart_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
 /* provided dependency */ var incart_createElement = __webpack_require__(6295)["default"];
 
 
@@ -1766,27 +1766,27 @@ class InCart {
   constructor(settings) {
     var _this = this;
 
-    (0,defineProperty/* default */.Z)(this, "appURL", incart_ConceptSGMSettings.foxkitAppURL ? `https://${incart_ConceptSGMSettings.foxkitAppURL}` : '');
+    (0,defineProperty/* default */.Z)(this, "appURL", incart_WebArcDesignSettings.foxkitAppURL ? `https://${incart_WebArcDesignSettings.foxkitAppURL}` : '');
 
     (0,defineProperty/* default */.Z)(this, "cartItems", []);
 
     (0,defineProperty/* default */.Z)(this, "renderedProducts", []);
 
     (0,defineProperty/* default */.Z)(this, "init", async () => {
-      if (incart_ConceptSGMTheme.Cart.cart) {
-        this.cartItems = incart_ConceptSGMTheme.Cart.cart.items;
+      if (incart_WebArcDesignTheme.Cart.cart) {
+        this.cartItems = incart_WebArcDesignTheme.Cart.cart.items;
       } else {
-        const cart = await incart_ConceptSGMTheme.Cart.getCart();
+        const cart = await incart_WebArcDesignTheme.Cart.getCart();
         if (cart) this.cartItems = cart.items;
       }
 
-      if (incart_ConceptSGMSettings.template === 'cart') {
+      if (incart_WebArcDesignSettings.template === 'cart') {
         this.renderIncartProducts();
       } else {
-        ConceptSGMEvents.subscribe?.('ON_OPEN_DRAWER_CART', this.renderIncartProducts);
+        WebArcDesignEvents.subscribe?.('ON_OPEN_DRAWER_CART', this.renderIncartProducts);
       }
 
-      ConceptSGMEvents.subscribe?.('ON_CART_UPDATE', this.renderIncartProducts);
+      WebArcDesignEvents.subscribe?.('ON_CART_UPDATE', this.renderIncartProducts);
     });
 
     (0,defineProperty/* default */.Z)(this, "fetchIncartData", function () {
@@ -1813,7 +1813,7 @@ class InCart {
       if (res.ok) {
         const {
           cartDrawer
-        } = incart_ConceptSGMTheme.Cart?.domNodes;
+        } = incart_WebArcDesignTheme.Cart?.domNodes;
 
         if (cartDrawer) {
           this.renderedProducts = [];
@@ -1836,7 +1836,7 @@ class InCart {
                   settings: offer
                 });
                 targetItem.appendChild(incartComponent);
-                incart_ConceptSGMTheme.Products.initProductForms({
+                incart_WebArcDesignTheme.Products.initProductForms({
                   context: incartComponent
                 }).catch(console.error);
               }

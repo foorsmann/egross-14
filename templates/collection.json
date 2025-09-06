@@ -106,7 +106,7 @@
           "settings": {
             "design_filtergroup": "inrow",
             "title": "Brand",
-            "filtergroup": "ConceptSGM,Retrolie,Abby,Brook,Learts,Vagabond",
+            "filtergroup": "WebArc Design,Retrolie,Abby,Brook,Learts,Vagabond",
             "show_label": false,
             "use_accordion": false,
             "open_filtergroup": true
@@ -117,7 +117,7 @@
           "settings": {
             "design_filtergroup": "inrow",
             "title": "Tag",
-            "filtergroup": "Dress,Tops,Shirts,Fashion,Hats,Sandal,Belt,Bags,Snacker,Denim,ConceptSGM,Vagabond,Sunglasses, Beachwear,Vintage",
+            "filtergroup": "Dress,Tops,Shirts,Fashion,Hats,Sandal,Belt,Bags,Snacker,Denim,WebArc Design,Vagabond,Sunglasses, Beachwear,Vintage",
             "show_label": false,
             "use_accordion": true,
             "open_filtergroup": true

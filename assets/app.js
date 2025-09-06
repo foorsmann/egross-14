@@ -7,25 +7,25 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -453,9 +453,9 @@ const fetchJsonCache = function (url) {
 /***/ 5118:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 const {
   getRequestDefaultConfigs
 } = __webpack_require__(6662);
@@ -525,7 +525,7 @@ Shopify.onCartUpdate = async function (cart) {
   try {
     const {
       Cart
-    } = ConceptSGMTheme;
+    } = WebArcDesignTheme;
 
     if (Cart) {
       if (!cart) {
@@ -538,7 +538,7 @@ Shopify.onCartUpdate = async function (cart) {
         Cart.openCartDrawer();
       }
 
-      ConceptSGMEvents.emit('ON_CART_UPDATE', cart);
+      WebArcDesignEvents.emit('ON_CART_UPDATE', cart);
       console.info(`There are now ${cart.item_count} items in the cart. Should open drawer: ${open_drawer}`);
     }
   } catch (err) {
@@ -568,8 +568,8 @@ Shopify.onItemAdded = async function (line_item) {
   try {
     const {
       Cart
-    } = ConceptSGMTheme;
-    ConceptSGMEvents.emit('ON_ITEM_ADDED', line_item);
+    } = WebArcDesignTheme;
+    WebArcDesignEvents.emit('ON_ITEM_ADDED', line_item);
 
     if (Cart) {
       await Cart.refreshCart();
@@ -577,11 +577,11 @@ Shopify.onItemAdded = async function (line_item) {
       if (open_drawer) {
         await Cart.renderNewCart();
         Cart.openCartDrawer();
-        ConceptSGMTheme.Notification.show({
+        WebArcDesignTheme.Notification.show({
           target: Cart.domNodes?.cartDrawerItems,
           method: 'prepend',
           type: 'success',
-          message: ConceptSGMStrings.itemAdded,
+          message: WebArcDesignStrings.itemAdded,
           delay: 400
         });
       }
@@ -2708,7 +2708,7 @@ function initLocalization() {
   });
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/index.js
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var createElement = __webpack_require__(6295)["default"];
 
 
@@ -2859,7 +2859,7 @@ function getVideoURL(id, host) {
 function showCookieConsent() {
   const {
     show_cookie_consent
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const cookieAccepted = getCookie('cookieconsent_status');
 
   if (show_cookie_consent && !cookieAccepted) {
@@ -2938,8 +2938,8 @@ function addRecentViewedProduct() {
   const cookies = getCookie('sf-recent-viewed-products');
   let products = cookies ? JSON.parse(cookies) : [];
 
-  if (products.indexOf(ConceptSGMSettings.productHandle) === -1) {
-    products.unshift(ConceptSGMSettings.productHandle);
+  if (products.indexOf(WebArcDesignSettings.productHandle) === -1) {
+    products.unshift(WebArcDesignSettings.productHandle);
     products = products.slice(0, 20);
     setCookie('sf-recent-viewed-products', JSON.stringify(products));
   }
@@ -2989,22 +2989,22 @@ function getParams() {
 
 const setSwatchesOptions = () => {
   try {
-    ConceptSGMSettings._colorSwatches = [];
-    ConceptSGMSettings._imageSwatches = [];
-    ConceptSGMSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
+    WebArcDesignSettings._colorSwatches = [];
+    WebArcDesignSettings._imageSwatches = [];
+    WebArcDesignSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
       const [key, value] = colorSwatch.split(':');
 
-      ConceptSGMSettings._colorSwatches.push({
+      WebArcDesignSettings._colorSwatches.push({
         key: key.trim().toLowerCase(),
         value: value?.trim?.() || ''
       });
     });
-    Object.keys(ConceptSGMSettings).forEach(key => {
+    Object.keys(WebArcDesignSettings).forEach(key => {
       if (key.includes('filter_color') && !key.includes('.png')) {
-        if (ConceptSGMSettings[`${key}.png`]) {
-          ConceptSGMSettings._imageSwatches.push({
-            key: ConceptSGMSettings[key].toLowerCase(),
-            value: ConceptSGMSettings[`${key}.png`]
+        if (WebArcDesignSettings[`${key}.png`]) {
+          WebArcDesignSettings._imageSwatches.push({
+            key: WebArcDesignSettings[key].toLowerCase(),
+            value: WebArcDesignSettings[`${key}.png`]
           });
         }
       }
@@ -3028,7 +3028,7 @@ const utilities_formatUrl = (pageType, handle, query) => {
   let url;
   const {
     routes
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const root = routes.root.endsWith('/') ? '' : routes.root;
   url = `${root}/${pageType}/${handle}`;
   if (query) url += `?${query}`;
@@ -3050,8 +3050,8 @@ function runHelpers() {
   }
 }
 ;// CONCATENATED MODULE: ./src/js/modules/mega-menu.js
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -3119,8 +3119,8 @@ class Megamenu {
     }
 
     this.init();
-    ConceptSGMTheme = ConceptSGMTheme || {};
-    ConceptSGMTheme.headerSliders = this.sliders;
+    WebArcDesignTheme = WebArcDesignTheme || {};
+    WebArcDesignTheme.headerSliders = this.sliders;
   }
 
   init() {
@@ -3196,7 +3196,7 @@ class Megamenu {
     const columns = sliderContainer.dataset.column;
     let slider;
     loadAssets(['swiper.css', 'swiper.js']).then(() => {
-      slider = new ConceptSGMLibs.Swiper(`${screenClass} .sf-slider-${id}`, {
+      slider = new WebArcDesignLibs.Swiper(`${screenClass} .sf-slider-${id}`, {
         slidesPerView: 1,
         loop: false,
         autoplay: false,
@@ -3344,7 +3344,7 @@ class Megamenu {
 
 }
 ;// CONCATENATED MODULE: ./src/js/modules/siteNav.js
-/* provided dependency */ var siteNav_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var siteNav_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 class SiteNav {
@@ -3427,7 +3427,7 @@ class SiteNav {
       const swiper = menuItem.querySelector(this.selectors.swiper);
       if (!swiper) return;
       const itemIndex = menuItem.dataset.index;
-      const slider = siteNav_ConceptSGMTheme?.headerSliders[itemIndex];
+      const slider = siteNav_WebArcDesignTheme?.headerSliders[itemIndex];
       slider?.update();
     });
 
@@ -3595,8 +3595,8 @@ then close all select boxes:*/
 
 document.addEventListener("click", closeAllSelect);
 ;// CONCATENATED MODULE: ./src/js/sections/header.js
-/* provided dependency */ var header_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var header_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var header_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var header_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 
@@ -3650,16 +3650,16 @@ register('header', {
     this.megamenu = new Megamenu(this.container);
 
     if (this.isDesignMode) {
-      header_ConceptSGMTheme = header_ConceptSGMTheme || {};
-      header_ConceptSGMTheme?.Wishlist?.updateWishlistCount?.(); // ConceptSGMTheme?.Currency?.queryDomNodes?.()
-      // ConceptSGMTheme?.Currency?.addEventToCurrenySwitchers?.()
-      // ConceptSGMTheme?.Search?.queryDomNodes?.()
+      header_WebArcDesignTheme = header_WebArcDesignTheme || {};
+      header_WebArcDesignTheme?.Wishlist?.updateWishlistCount?.(); // WebArcDesignTheme?.Currency?.queryDomNodes?.()
+      // WebArcDesignTheme?.Currency?.addEventToCurrenySwitchers?.()
+      // WebArcDesignTheme?.Search?.queryDomNodes?.()
 
-      header_ConceptSGMTheme?.Search?.init?.();
+      header_WebArcDesignTheme?.Search?.init?.();
     }
   },
   handleSticky: function () {
-    let extraSpace = header_ConceptSGMSettings.template === 'product' ? 20 : 50;
+    let extraSpace = header_WebArcDesignSettings.template === 'product' ? 20 : 50;
     if (!this.stickyEnabled) return;
     let lastScroll = 0;
 
@@ -3859,7 +3859,7 @@ register('footer', {
   }
 }); // load('footer')
 ;// CONCATENATED MODULE: ./src/js/sections/slider.js
-/* provided dependency */ var slider_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var slider_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -3893,7 +3893,7 @@ register('slider', {
     };
     const paginationIcon = `<svg width="65px" height="65px" viewBox="0 0 72 72" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle class="time" stroke-width="5" fill="none" stroke-linecap="round" cx="33" cy="33" r="28"></circle></svg>`;
     loadAssets(['swiper.css', 'swiper.js']).then(() => {
-      _this.slider = new slider_ConceptSGMLibs.Swiper(`#sf-slider-${_this.id}`, {
+      _this.slider = new slider_WebArcDesignLibs.Swiper(`#sf-slider-${_this.id}`, {
         init: false,
         autoplay: _this.autoplay ? {
           delay: _this.autoplaySpeed * 1000,
@@ -4055,7 +4055,7 @@ class Tabs {
 
 }
 ;// CONCATENATED MODULE: ./src/js/sections/testimonials.js
-/* provided dependency */ var testimonials_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var testimonials_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -4214,7 +4214,7 @@ register('testimonials', {
 
     const initSlider = () => {
       loadAssets(['swiper.css', 'swiper.js']).then(() => {
-        this.slider = new testimonials_ConceptSGMLibs.Swiper(slider, { ...defaultSettings,
+        this.slider = new testimonials_WebArcDesignLibs.Swiper(slider, { ...defaultSettings,
           ...settings
         });
 
@@ -4502,7 +4502,7 @@ register('countdown-timer', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/banner-with-slider.js
-/* provided dependency */ var banner_with_slider_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var banner_with_slider_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -4518,7 +4518,7 @@ register('banner-with-slider', {
       loadAssets(['swiper.css', 'swiper.js']).then(() => {
         const _this = this;
 
-        this.slider = new banner_with_slider_ConceptSGMLibs.Swiper(`.sf-slider-${this.id}`, {
+        this.slider = new banner_with_slider_WebArcDesignLibs.Swiper(`.sf-slider-${this.id}`, {
           autoplay: container.dataset.autoplay === 'true' ? {
             delay: container.dataset.timeout,
             disableOnInteraction: true
@@ -5117,8 +5117,8 @@ register('video-section', {
 }
 ;// CONCATENATED MODULE: ./src/js/sections/custom-content.js
 /* provided dependency */ var custom_content_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var custom_content_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var custom_content_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var custom_content_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var custom_content_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
  // eslint-disable-next-line no-unused-vars
 
@@ -5189,14 +5189,14 @@ register('custom-content', {
     const savedPrice = product.querySelector('[data-saved-price]');
     const selectedVariant = evt.target.value;
     const variant = variants.find(v => v.id === parseInt(selectedVariant));
-    regularPrice.innerHTML = formatMoney(variant.price, custom_content_ConceptSGMSettings.money_format);
+    regularPrice.innerHTML = formatMoney(variant.price, custom_content_WebArcDesignSettings.money_format);
     regularPrice.dataset.price = variant.price;
 
     if (variant.compare_at_price && variant.compare_at_price > variant.price) {
       comparePrice.classList.remove('hidden');
       savedPrice.classList.remove('hidden');
-      comparePrice.innerHTML = formatMoney(variant.compare_at_price, custom_content_ConceptSGMSettings.money_format);
-      savedPrice.innerHTML = formatMoney(variant.compare_at_price - variant.price, custom_content_ConceptSGMSettings.money_format);
+      comparePrice.innerHTML = formatMoney(variant.compare_at_price, custom_content_WebArcDesignSettings.money_format);
+      savedPrice.innerHTML = formatMoney(variant.compare_at_price - variant.price, custom_content_WebArcDesignSettings.money_format);
     } else {
       comparePrice.classList.add('hidden');
       savedPrice.classList.add('hidden');
@@ -5211,7 +5211,7 @@ register('custom-content', {
     }).filter(Boolean);
     const totalPrice = selectedVariants.reduce((s, v) => s + v.price, 0);
     const container = product.closest('.product-bundles');
-    container.querySelector(this.selectors.totalPrice).innerHTML = formatMoney(totalPrice, custom_content_ConceptSGMSettings.money_format);
+    container.querySelector(this.selectors.totalPrice).innerHTML = formatMoney(totalPrice, custom_content_WebArcDesignSettings.money_format);
   },
   _handleAddItems: function (e, bundle) {
     e.preventDefault();
@@ -5255,7 +5255,7 @@ register('custom-content', {
     });
   },
   _showError: function (err, errorWrapper) {
-    custom_content_ConceptSGMTheme.Notification.show({
+    custom_content_WebArcDesignTheme.Notification.show({
       target: errorWrapper,
       method: 'appendChild',
       type: 'warning',
@@ -5285,9 +5285,9 @@ register('custom-content', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/utilities/section.js
-/* provided dependency */ var section_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
-/* provided dependency */ var section_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var section_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var section_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
+/* provided dependency */ var section_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var section_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 function initSlider(_ref) {
@@ -5319,7 +5319,7 @@ function initSlider(_ref) {
 
   const _initSlider = () => {
     loadAssets(['swiper.css', 'swiper.js']).then(() => {
-      slider = new section_ConceptSGMLibs.Swiper(sliderContainer, {
+      slider = new section_WebArcDesignLibs.Swiper(sliderContainer, {
         init: false,
         autoplay: autoplay ? {
           delay: 4000,
@@ -5393,13 +5393,13 @@ function initSlider(_ref) {
           nextButton && nextButton.addEventListener('click', () => slider.slideNext());
         }
 
-        if (!loop && prevButton) prevButton.disabled = true; // ConceptSGMTheme.Products.initProductForms({ context: container })
+        if (!loop && prevButton) prevButton.disabled = true; // WebArcDesignTheme.Products.initProductForms({ context: container })
         // .then(() => {
         // })
         // .catch(console.error)
 
-        section_ConceptSGMTheme.CompareProduct?.setCompareButtonsState();
-        section_ConceptSGMTheme.Wishlist?.setWishlistButtonsState();
+        section_WebArcDesignTheme.CompareProduct?.setCompareButtonsState();
+        section_WebArcDesignTheme.Wishlist?.setWishlistButtonsState();
       }); // Init swiper
 
       slider.init();
@@ -5427,7 +5427,7 @@ function initSlider(_ref) {
   };
 }
 function fetchCountDown(collectionID) {
-  const appURL = section_ConceptSGMSettings.foxkitAppURL ? `https://${section_ConceptSGMSettings.foxkitAppURL}` : '';
+  const appURL = section_WebArcDesignSettings.foxkitAppURL ? `https://${section_WebArcDesignSettings.foxkitAppURL}` : '';
   return new Promise((resolve, reject) => {
     let requestUrl = `${appURL}/api/public/countdown?shop=${window.Shopify?.shop}&collectionIds=${collectionID}`;
     fetch(requestUrl).then(response => response.json()).then(resolve).catch(reject);
@@ -5435,7 +5435,7 @@ function fetchCountDown(collectionID) {
 }
 ;// CONCATENATED MODULE: ./src/js/components/SaleProgress.jsx
 /* provided dependency */ var SaleProgress_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 function SaleProgress(_ref) {
   let {
     settings,
@@ -5480,11 +5480,11 @@ function SaleProgress(_ref) {
     }
   })), SaleProgress_createElement("div", {
     className: "pcard-sale__text flex justify-between mt-2"
-  }, SaleProgress_createElement("div", null, SaleProgress_createElement("span", null, ConceptSGMStrings.sold, ": "), SaleProgress_createElement("strong", {
+  }, SaleProgress_createElement("div", null, SaleProgress_createElement("span", null, WebArcDesignStrings.sold, ": "), SaleProgress_createElement("strong", {
     dataSet: {
       saleNumber: ''
     }
-  }, soldNumb || 0)), SaleProgress_createElement("div", null, SaleProgress_createElement("span", null, ConceptSGMStrings.available, ": "), SaleProgress_createElement("strong", {
+  }, soldNumb || 0)), SaleProgress_createElement("div", null, SaleProgress_createElement("span", null, WebArcDesignStrings.available, ": "), SaleProgress_createElement("strong", {
     dataSet: {
       availableNumber: ''
     }
@@ -5507,7 +5507,7 @@ register('featured-collection', {
       availableNumber: ['[data-available-number]'],
       countDown: '[data-flashsale-countdown]'
     };
-    this.domNodes = queryDomNodes(this.selectors, this.container); // ConceptSGMTheme.Products.initProductForms().catch(console.error)
+    this.domNodes = queryDomNodes(this.selectors, this.container); // WebArcDesignTheme.Products.initProductForms().catch(console.error)
 
     const {
       container
@@ -5579,7 +5579,7 @@ register('featured-collection', {
       // const products = dom.querySelector(this.selectors.productsContainer)
       // if (products) {
       //   Array.from(products.childNodes).forEach(product => this.domNodes.productsContainer.appendChild(product))
-      //   ConceptSGMTheme.Products.initProductForms()
+      //   WebArcDesignTheme.Products.initProductForms()
       // }
 
       this.triggerLoad = false;
@@ -5692,7 +5692,7 @@ register('collection-list', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/press.js
-/* provided dependency */ var press_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var press_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -5707,14 +5707,14 @@ register('press', {
         const autoplay = this.container.dataset.autoplay === 'true';
         this.items = parseInt(this.container.dataset.items);
         this.canLoop = window.innerWidth < 1300 ? this.items > 3 : this.items > 5;
-        this.contentSlider = new press_ConceptSGMLibs.Swiper(contentWrapper, {
+        this.contentSlider = new press_WebArcDesignLibs.Swiper(contentWrapper, {
           slidesPerView: 1,
           allowTouchMove: false,
           fadeEffect: {
             crossFade: true
           }
         });
-        this.navSlider = new press_ConceptSGMLibs.Swiper(navWrapper, {
+        this.navSlider = new press_WebArcDesignLibs.Swiper(navWrapper, {
           autoplay: autoplay ? {
             delay: 5000
           } : false,
@@ -5794,7 +5794,7 @@ register('press', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/hero.js
-/* provided dependency */ var hero_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var hero_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -5839,14 +5839,14 @@ register('hero', {
   },
   _initParallax: function (bg) {
     loadAssets('parallax.js').then(() => {
-      new hero_ConceptSGMLibs.simpleParallax(bg, {
+      new hero_WebArcDesignLibs.simpleParallax(bg, {
         scale: 1.5
       });
     }).catch(console.error);
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/reviews-pages.js
-/* provided dependency */ var reviews_pages_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var reviews_pages_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 register('reviews-page', {
@@ -5854,7 +5854,7 @@ register('reviews-page', {
     let wrapper = this.container.querySelector('.sf__masonry-wrapper');
     loadAssets('tilt.js').then(() => {
       setTimeout(() => {
-        this.msry = new reviews_pages_ConceptSGMLibs.Masonry(wrapper, {
+        this.msry = new reviews_pages_WebArcDesignLibs.Masonry(wrapper, {
           itemSelector: '.sf__masonry-item',
           percentPosition: true
         });
@@ -5877,8 +5877,8 @@ register('page-faqs', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/featured-slider.js
-/* provided dependency */ var featured_slider_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
-/* provided dependency */ var featured_slider_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var featured_slider_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
+/* provided dependency */ var featured_slider_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 
@@ -5901,7 +5901,7 @@ register('featured-slider', {
         const showPagination = this.container.dataset.showPagination === 'true';
         const autoplay = this.container.dataset.autoplay === 'true';
         const timeout = this.container.dataset.timeout;
-        this.slider = new featured_slider_ConceptSGMLibs.Swiper(this.domNodes.sliderContainer, {
+        this.slider = new featured_slider_WebArcDesignLibs.Swiper(this.domNodes.sliderContainer, {
           speed: 400,
           loop: false,
           autoplay: autoplay ? {
@@ -5919,7 +5919,7 @@ register('featured-slider', {
                 this.domNodes.prevBtn?.addEventListener('click', () => this.slider.slidePrev());
                 this.domNodes.nextBtn?.addEventListener('click', () => this.slider.slideNext());
                 this.domNodes.prevBtn.disabled = true;
-              } // ConceptSGMTheme.Products.initProductForms({ context: this.container })
+              } // WebArcDesignTheme.Products.initProductForms({ context: this.container })
               // Calculate controls position
 
 
@@ -5936,7 +5936,7 @@ register('featured-slider', {
           }
         }); // Sync 2 sliders
 
-        this.imageSlider = new featured_slider_ConceptSGMLibs.Swiper(this.domNodes.slideImagesContainer, {
+        this.imageSlider = new featured_slider_WebArcDesignLibs.Swiper(this.domNodes.slideImagesContainer, {
           speed: 500,
           loop: false,
           effect: 'fade',
@@ -5951,7 +5951,7 @@ register('featured-slider', {
             isEnd
           } = swiper;
           this.imageSlider.slideTo(activeIndex);
-          featured_slider_ConceptSGMTheme.Products.initProductForms({
+          featured_slider_WebArcDesignTheme.Products.initProductForms({
             context: this.container
           });
 
@@ -5977,7 +5977,7 @@ register('featured-slider', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/brand-list.js
-/* provided dependency */ var brand_list_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var brand_list_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -6013,7 +6013,7 @@ register('brand-list', {
 
     const initSlider = () => {
       loadAssets(['swiper.css', 'swiper.js']).then(() => {
-        this.slider = new brand_list_ConceptSGMLibs.Swiper(this.container.querySelector('.swiper-container'), {
+        this.slider = new brand_list_WebArcDesignLibs.Swiper(this.container.querySelector('.swiper-container'), {
           slidesPerView: items,
           slidesPerGroup: items,
           autoplay: autoplay ? {
@@ -6078,22 +6078,22 @@ register('sf-collapsible', {
 
 register('featured-product', {
   onLoad: function () {
-    // ConceptSGMTheme?.Products?.initProductForms?.({context: this.container})?.catch(console.error)
+    // WebArcDesignTheme?.Products?.initProductForms?.({context: this.container})?.catch(console.error)
     const prodAccordions = this.container.querySelectorAll('.prod__accordion');
     prodAccordions.forEach(acc => new Accordion(acc));
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/collection.js
-/* provided dependency */ var collection_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var collection_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 register('collection-template', {
   onLoad: () => {
-    loadAssets('collection.js').then(() => collection_ConceptSGMTheme.Collection.init()).catch(console.error);
+    loadAssets('collection.js').then(() => collection_WebArcDesignTheme.Collection.init()).catch(console.error);
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/collection-header.js
-/* provided dependency */ var collection_header_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var collection_header_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 register('collection-header', {
@@ -6103,7 +6103,7 @@ register('collection-header', {
     if (parallaxEnabled && window.innerWidth > 767) {
       const bg = this.container.querySelector('.collection-header__bg');
       loadAssets('parallax.js').then(() => {
-        new collection_header_ConceptSGMLibs.simpleParallax(bg, {
+        new collection_header_WebArcDesignLibs.simpleParallax(bg, {
           scale: 1.1,
           customWrapper: '.collection-header'
         });
@@ -6112,7 +6112,7 @@ register('collection-header', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/brand-header.js
-/* provided dependency */ var brand_header_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var brand_header_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 register('brand-header', {
@@ -6125,7 +6125,7 @@ register('brand-header', {
 
     if (imagesCount > 1) {
       loadAssets(['swiper.css', 'swiper.js']).then(() => {
-        this.slider = new brand_header_ConceptSGMLibs.Swiper(slider, {
+        this.slider = new brand_header_WebArcDesignLibs.Swiper(slider, {
           autoplay: {
             delay: 5000
           },
@@ -6144,7 +6144,7 @@ register('brand-header', {
   }
 });
 ;// CONCATENATED MODULE: ./src/js/sections/product.js
-/* provided dependency */ var product_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var product_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 
@@ -6152,21 +6152,21 @@ register('brand-header', {
 register('product-page', {
   // Shortcut function called when a section is loaded via 'sections.load()' or by the Theme Editor 'shopify:section:load' event.
   onLoad: function () {
-    this.acc = []; // ConceptSGMTheme
+    this.acc = []; // WebArcDesignTheme
     //   .Products
     //   .initProductForms({ context: this.container })
     //   .then(() => {
     //   })
     //   .catch(console.error)
 
-    product_ConceptSGMTheme.CompareProduct?.setCompareButtonsState?.();
-    product_ConceptSGMTheme.Wishlist?.setWishlistButtonsState?.();
+    product_WebArcDesignTheme.CompareProduct?.setCompareButtonsState?.();
+    product_WebArcDesignTheme.Wishlist?.setWishlistButtonsState?.();
     addRecentViewedProduct();
-    product_ConceptSGMTheme?.SizeChart?.init?.();
-    product_ConceptSGMTheme?.ProductCountdown?.init?.(); // ConceptSGMTheme?.StickyATC?.init?.()
+    product_WebArcDesignTheme?.SizeChart?.init?.();
+    product_WebArcDesignTheme?.ProductCountdown?.init?.(); // WebArcDesignTheme?.StickyATC?.init?.()
 
-    product_ConceptSGMTheme?.BoostSales?.init?.();
-    product_ConceptSGMTheme?.Sharing?.init?.();
+    product_WebArcDesignTheme?.BoostSales?.init?.();
+    product_WebArcDesignTheme?.Sharing?.init?.();
     const prodAccordions = document.querySelectorAll('.prod__accordion');
     prodAccordions.forEach((acc, index) => {
       this.acc.push(new Accordion(acc));
@@ -6174,7 +6174,7 @@ register('product-page', {
     });
     (0,events/* addEventDelegate */.X)({
       context: this.container,
-      selector: (window.__ConceptSGM_review_selector || '') + '.prod__accordion .jdgm-widget-actions-wrapper, .prod__accordion .spr-summary-actions-newreview',
+      selector: (window.__WebArcDesign_review_selector || '') + '.prod__accordion .jdgm-widget-actions-wrapper, .prod__accordion .spr-summary-actions-newreview',
       handler: e => {
         const index = e.target.closest('.prod__accordion').dataset.index;
         setTimeout(() => {
@@ -6282,7 +6282,7 @@ register('product-tabs', {
       const products = dom.querySelector(this.selectors.productsContainer);
 
       if (products) {
-        Array.from(products.childNodes).forEach(product => productsContainer.appendChild(product)); // ConceptSGMTheme.Products.initProductForms({context: this.context})
+        Array.from(products.childNodes).forEach(product => productsContainer.appendChild(product)); // WebArcDesignTheme.Products.initProductForms({context: this.context})
         const root = (productsContainer.closest('[data-section-type]')) || wrapper || document;
         document.dispatchEvent(new CustomEvent('sf:slider-products-loaded', {
           detail: {
@@ -6314,7 +6314,7 @@ register('product-tabs', {
 });
 ;// CONCATENATED MODULE: ./src/js/pages/product/product-list.js
 /* provided dependency */ var product_list_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var product_list_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var product_list_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 
@@ -6360,8 +6360,8 @@ class ProductList {
           productWrapper?.appendChild(node);
         }
       });
-      product_list_ConceptSGMTheme.CompareProduct?.setCompareButtonsState();
-      product_list_ConceptSGMTheme.Wishlist?.setWishlistButtonsState(); // ConceptSGMTheme.Products.initProductForms({ context: this.container })
+      product_list_WebArcDesignTheme.CompareProduct?.setCompareButtonsState();
+      product_list_WebArcDesignTheme.Wishlist?.setWishlistButtonsState(); // WebArcDesignTheme.Products.initProductForms({ context: this.container })
       // .then(() => {
       // })
       // .catch(console.error)
@@ -6425,17 +6425,17 @@ class ProductList {
   }
 
 }
-product_list_ConceptSGMTheme.ProductList = ProductList;
+product_list_WebArcDesignTheme.ProductList = ProductList;
 ;// CONCATENATED MODULE: ./src/js/sections/product-recommendations.js
-/* provided dependency */ var product_recommendations_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var product_recommendations_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var product_recommendations_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var product_recommendations_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 
 register('product-recommendations', {
   onLoad: async function () {
     try {
-      const recommendationURL = product_recommendations_ConceptSGMSettings.routes.product_recommendations_url;
-      const productId = product_recommendations_ConceptSGMSettings.productId || product_recommendations_ConceptSGMTheme.Cart.cart.items[0]?.product_id;
+      const recommendationURL = product_recommendations_WebArcDesignSettings.routes.product_recommendations_url;
+      const productId = product_recommendations_WebArcDesignSettings.productId || product_recommendations_WebArcDesignTheme.Cart.cart.items[0]?.product_id;
 
       if (productId) {
         const res = await fetchJSON(`${recommendationURL}.json?product_id=${productId}&limit=${this.container.dataset.productsToShow}`);
@@ -6913,10 +6913,10 @@ function filterCountries(countries, includedCountryCodes) {
 
 
 ;// CONCATENATED MODULE: ./src/js/modules/cart.js
-/* provided dependency */ var cart_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var cart_ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
-/* provided dependency */ var cart_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
+/* provided dependency */ var cart_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var cart_WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
+/* provided dependency */ var cart_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
 /* provided dependency */ var cart_createElement = __webpack_require__(6295)["default"];
 
 
@@ -6962,9 +6962,9 @@ class Cart {
 
     _defineProperty(this, "discountCodeKey", 'mn-discount-code');
 
-    _defineProperty(this, "isCartPage", cart_ConceptSGMSettings.templateName === 'cart');
+    _defineProperty(this, "isCartPage", cart_WebArcDesignSettings.templateName === 'cart');
 
-    _defineProperty(this, "enableCartDrawer", cart_ConceptSGMSettings.enable_cart_drawer);
+    _defineProperty(this, "enableCartDrawer", cart_WebArcDesignSettings.enable_cart_drawer);
 
     _defineProperty(this, "cartSection", this.isCartPage ? 'cart-template' : 'cart-drawer');
 
@@ -7029,7 +7029,7 @@ class Cart {
     });
 
     _defineProperty(this, "changeCart", lineItem => {
-      return fetchJSON(cart_ConceptSGMSettings.routes.cart_change_url, {
+      return fetchJSON(cart_WebArcDesignSettings.routes.cart_change_url, {
         headers: {
           'Content-Type': 'application/json',
           'Accept': `application/json`
@@ -7040,7 +7040,7 @@ class Cart {
     });
 
     _defineProperty(this, "updateCart", data => {
-      return fetchJSON(cart_ConceptSGMSettings.routes.cart_update_url, {
+      return fetchJSON(cart_WebArcDesignSettings.routes.cart_update_url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -7054,7 +7054,7 @@ class Cart {
       const {
         not_enough_item_message,
         sold_out_items_message
-      } = cart_ConceptSGMStrings;
+      } = cart_WebArcDesignStrings;
 
       try {
         const {
@@ -7088,7 +7088,7 @@ class Cart {
 
             if (lineItems.length === 1) {
               const lineItemNode = this.getLineItemNode(lineItem);
-              cart_ConceptSGMTheme.Notification.show({
+              cart_WebArcDesignTheme.Notification.show({
                 target: lineItemNode,
                 type: 'warning',
                 message: not_enough_item_message.replace('__inventory_quantity__', newItem.quantity)
@@ -7103,7 +7103,7 @@ class Cart {
           const lineItemNode = this.getLineItemNode(lineItem);
 
           if (lineItemNode) {
-            cart_ConceptSGMTheme.Notification.show({
+            cart_WebArcDesignTheme.Notification.show({
               target: lineItemNode,
               type: 'warning',
               message: sold_out_items_message
@@ -7199,7 +7199,7 @@ class Cart {
           cartDrawerContent.classList.remove('translate-x-full');
           !this.scrollHandlerAdded && this.addScrollHandler();
         });
-        ConceptSGMEvents.emit('ON_OPEN_DRAWER_CART', this.cart);
+        WebArcDesignEvents.emit('ON_OPEN_DRAWER_CART', this.cart);
         // reinit quantity buttons so minus stays disabled below min when drawer opens
         window.dispatchEvent(new Event('shopify:cart:updated'));
       }
@@ -7309,7 +7309,7 @@ class Cart {
           const {
             shippingRatesResult,
             noShippingRate
-          } = cart_ConceptSGMStrings;
+          } = cart_WebArcDesignStrings;
 
           if (shipping_rates.length > 0) {
             this.domNodes.shippingContent.appendChild(cart_createElement("p", {
@@ -7317,7 +7317,7 @@ class Cart {
             }, shippingRatesResult.replace('{{count}}', shipping_rates.length), ":"));
             shipping_rates.map(rate => {
               const rateNode = cart_createElement("span", null);
-              rateNode.innerHTML = formatMoney(rate.price, cart_ConceptSGMSettings.money_format);
+              rateNode.innerHTML = formatMoney(rate.price, cart_WebArcDesignSettings.money_format);
               this.domNodes.shippingContent.appendChild(cart_createElement("p", null, rate.name, ": ", rateNode));
             });
           } else {
@@ -7486,14 +7486,14 @@ addEventDelegate({
     });
     this.initCartCountDown();
     this.initCartAddons();
-    ConceptSGMEvents.subscribe?.('ON_CART_UPDATE', cart => {
+    WebArcDesignEvents.subscribe?.('ON_CART_UPDATE', cart => {
       this.cart = cart;
       this.updateCartCount(cart);
     });
   }
 
 }
-cart_ConceptSGMTheme.Cart = new Cart();
+cart_WebArcDesignTheme.Cart = new Cart();
 ;// CONCATENATED MODULE: ./src/js/components/Notification.jsx
 /* provided dependency */ var Notification_createElement = __webpack_require__(6295)["default"];
 /* harmony default export */ function components_Notification(_ref) {
@@ -7541,7 +7541,7 @@ cart_ConceptSGMTheme.Cart = new Cart();
 }
 ;// CONCATENATED MODULE: ./src/js/modules/notification.js
 /* provided dependency */ var notification_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var notification_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var notification_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 // eslint-disable-next-line no-unused-vars
 
@@ -7602,7 +7602,7 @@ class Notification {
   }
 
 }
-notification_ConceptSGMTheme.Notification = new Notification();
+notification_WebArcDesignTheme.Notification = new Notification();
 ;// CONCATENATED MODULE: ./node_modules/@shopify/theme-product/theme-product.js
 /**
  * Returns a product JSON object when passed a product URL
@@ -7974,7 +7974,7 @@ function _validateProductObject(product) {
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/product-fns.js
 /* provided dependency */ var product_fns_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var product_fns_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var product_fns_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 const themeProducts = window._themeProducts || {};
 const fetchProductByHandle = async handle => {
@@ -8070,7 +8070,7 @@ const getProductInstances = query => {
     fieldSearch = 'handle';
   }
 
-  return product_fns_ConceptSGMTheme.Products.productInstances.filter(pro => pro.productData?.[fieldSearch] === query);
+  return product_fns_WebArcDesignTheme.Products.productInstances.filter(pro => pro.productData?.[fieldSearch] === query);
 };
 window._getProductInstances = getProductInstances;
 const isValidColor = color => {
@@ -8128,7 +8128,7 @@ function getProductSliderConfig(layout) {
   return Object.assign({}, commonConfigs, conf);
 }
 ;// CONCATENATED MODULE: ./src/js/modules/product-helper.js
-/* provided dependency */ var product_helper_ConceptSGMLibs = __webpack_require__(4558)["ConceptSGMLibs"];
+/* provided dependency */ var product_helper_WebArcDesignLibs = __webpack_require__(4558)["WebArcDesignLibs"];
 
 
 
@@ -8229,7 +8229,7 @@ class ProductHelper {
         loadAssets(['plyr.css', 'plyr.js']).then(() => {
           [...this.domNodes?.videos]?.forEach(vid => {
             const elm = vid?.classList?.contains('local-video') ? vid?.querySelector('video') : vid;
-            const player = new product_helper_ConceptSGMLibs.Plyr(elm);
+            const player = new product_helper_WebArcDesignLibs.Plyr(elm);
             player.on('playing', () => {
               if (this?.currPlayer !== player) {
                 this?.currPlayer?.pause?.();
@@ -8306,7 +8306,7 @@ class ProductHelper {
             };
           }
         });
-        this.lightbox = new product_helper_ConceptSGMLibs.GLightbox({
+        this.lightbox = new product_helper_WebArcDesignLibs.GLightbox({
           elements,
           openEffect: 'fade',
           closeEffect: 'fade',
@@ -8338,7 +8338,7 @@ class ProductHelper {
           initialSlide = this.productData.initialVariant.featured_media?.position - 1 || 0;
         }
 
-        this.navSlider = navSlider ? new product_helper_ConceptSGMLibs.Swiper(navSlider, {
+        this.navSlider = navSlider ? new product_helper_WebArcDesignLibs.Swiper(navSlider, {
           initialSlide,
           slidesPerView: 5,
           freeMode: true,
@@ -8381,10 +8381,10 @@ class ProductHelper {
             match: this.initMobileSlider
           });
           src_default().register("screen and (min-width: 768px)", {
-            match: () => this.slider = new product_helper_ConceptSGMLibs.Swiper(slider, config)
+            match: () => this.slider = new product_helper_WebArcDesignLibs.Swiper(slider, config)
           });
         } else {
-          this.slider = new product_helper_ConceptSGMLibs.Swiper(slider, config);
+          this.slider = new product_helper_WebArcDesignLibs.Swiper(slider, config);
         }
 
         this.handleSlideChange();
@@ -8403,7 +8403,7 @@ class ProductHelper {
         initialSlide = this.productData.initialVariant.featured_media?.position - 1 || 0;
       }
 
-      this.navSliderMobile = navSliderMobile ? new product_helper_ConceptSGMLibs.Swiper(navSliderMobile, {
+      this.navSliderMobile = navSliderMobile ? new product_helper_WebArcDesignLibs.Swiper(navSliderMobile, {
         initialSlide,
         slidesPerView: 3,
         spaceBetween: 10,
@@ -8415,7 +8415,7 @@ class ProductHelper {
         }
       }) : null;
       const slider = this.domNodes.mediaMobile.querySelector(this.selectors.slider);
-      this.mobileSlider = new product_helper_ConceptSGMLibs.Swiper(slider, {
+      this.mobileSlider = new product_helper_WebArcDesignLibs.Swiper(slider, {
         initialSlide,
         autoHeight: true,
         // loop: true,
@@ -8635,10 +8635,10 @@ function removeProtocol(path) {
   return path.replace(/http(s)?:/, '');
 }
 ;// CONCATENATED MODULE: ./src/js/modules/product.js
-/* provided dependency */ var product_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var modules_product_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var product_ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
-/* provided dependency */ var product_ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
+/* provided dependency */ var product_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var modules_product_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var product_WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
+/* provided dependency */ var product_WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
 
 
 
@@ -8676,7 +8676,7 @@ class Product {
       this.view = this.productBlock.dataset.view || 'product-template'; // 'sticky-atc' | 'card' | 'quick-view' | 'mobile' | 'product-template'
 
       this.hasCustomRequiredFields = !!this.productForm.querySelector('.product__custom-field [name][required]');
-      this.hide_unavailable_product_options = product_ConceptSGMSettings.hide_unavailable_product_options;
+      this.hide_unavailable_product_options = product_WebArcDesignSettings.hide_unavailable_product_options;
       this.activeOptionNodeByPosition = {};
       this.listeners = [];
     });
@@ -8735,7 +8735,7 @@ class Product {
       const {
         _colorSwatches = [],
         _imageSwatches = []
-      } = product_ConceptSGMSettings;
+      } = product_WebArcDesignSettings;
       this.domNodes.optionNodes.forEach(optNode => {
         const {
           optionType,
@@ -8812,11 +8812,11 @@ class Product {
 
           if (missing.length > 0) {
             e.stopPropagation();
-            modules_product_ConceptSGMTheme.Notification.show({
+            modules_product_WebArcDesignTheme.Notification.show({
               target: this.domNodes.error,
               method: 'appendChild',
               type: 'warning',
-              message: product_ConceptSGMStrings.requiredField,
+              message: product_WebArcDesignStrings.requiredField,
               delay: 100
             });
             console.warn('Missing field(s): ', missing);
@@ -8854,7 +8854,7 @@ _defineProperty(this, "handleQtyInputChange", e => {
     input.style.color = '';
   }
 
-  product_ConceptSGMEvents.emit(`${this.productData.id}__QUANTITY_CHANGE`, val, this);
+  product_WebArcDesignEvents.emit(`${this.productData.id}__QUANTITY_CHANGE`, val, this);
   this.updateQtyBtnStates();
 });
 
@@ -8937,7 +8937,7 @@ _defineProperty(this, "handleQtyBtnClick", (e, btn) => {
   }
 
   this.updateQtyBtnStates && this.updateQtyBtnStates();
-  product_ConceptSGMEvents.emit(`${this.productData.id}__QUANTITY_CHANGE`, newQty, this);
+  product_WebArcDesignEvents.emit(`${this.productData.id}__QUANTITY_CHANGE`, newQty, this);
 });
 
 
@@ -9077,7 +9077,7 @@ _defineProperty(this, "handleQtyBtnClick", (e, btn) => {
 
     _defineProperty(this, "updatePriceByVariant", variant => {
       console.log(variant, 'updatePriceByVariant');
-      if (this.view === "card" && product_ConceptSGMSettings.pcard_show_lowest_prices) return;
+      if (this.view === "card" && product_WebArcDesignSettings.pcard_show_lowest_prices) return;
       const {
         comparePrice,
         price,
@@ -9086,7 +9086,7 @@ _defineProperty(this, "handleQtyBtnClick", (e, btn) => {
       } = this.domNodes;
 
       if (variant) {
-        const money_format = product_ConceptSGMSettings.money_format;
+        const money_format = product_WebArcDesignSettings.money_format;
         const priceText = formatMoney(variant.price, money_format);
         if (price) price.innerHTML = priceText;
 
@@ -9114,7 +9114,7 @@ _defineProperty(this, "handleQtyBtnClick", (e, btn) => {
 
         if (variant.unit_price_measurement) {
           this.domNodes.unitPrice?.classList.remove('hidden');
-          const unitPrice = `<span data-unit-price>${formatMoney(variant.unit_price, product_ConceptSGMSettings.money_format)}</span>/<span data-unit-price-base-unit>${this._getBaseUnit(variant)}</span>`;
+          const unitPrice = `<span data-unit-price>${formatMoney(variant.unit_price, product_WebArcDesignSettings.money_format)}</span>/<span data-unit-price-base-unit>${this._getBaseUnit(variant)}</span>`;
           this.domNodes.unitPrice.innerHTML = unitPrice;
         } else {
           this.domNodes.unitPrice?.classList.add('hidden');
@@ -9162,7 +9162,7 @@ _defineProperty(this, "handleQtyBtnClick", (e, btn) => {
         const {
           inStock,
           outOfStock
-        } = product_ConceptSGMStrings;
+        } = product_WebArcDesignStrings;
         const method = !variant.available ? 'add' : 'remove';
         productAvailability.innerText = variant.available ? inStock : outOfStock;
         productAvailability.classList[method]('prod__availability--outofstock');
@@ -9255,7 +9255,7 @@ _defineProperty(this, "updateBySelectedVariant", variant => {
     this.changeProductImage(variant);
   }
 
-  product_ConceptSGMEvents.emit(`${this.productData.id}__VARIANT_CHANGE`, variant, this);
+  product_WebArcDesignEvents.emit(`${this.productData.id}__VARIANT_CHANGE`, variant, this);
 });
 
 _defineProperty(this, "updateProductCardSoldOutBadge", variant => {
@@ -9292,7 +9292,7 @@ _defineProperty(this, "updateProductCardSoldOutBadge", variant => {
         soldOut,
         unavailable,
         addToCart: atcText
-      } = product_ConceptSGMStrings;
+      } = product_WebArcDesignStrings;
       const {
         addToCart,
         dynamicCheckout
@@ -9347,15 +9347,15 @@ _defineProperty(this, "updateProductCardSoldOutBadge", variant => {
       if (missing.length > 0) {
         console.warn('Missing field(s): ', missing);
         e?.preventDefault?.();
-        return modules_product_ConceptSGMTheme.Notification.show({
+        return modules_product_WebArcDesignTheme.Notification.show({
           target: this?.domNodes?.error,
           method: 'appendChild',
           type: 'warning',
-          message: product_ConceptSGMStrings.requiredField
+          message: product_WebArcDesignStrings.requiredField
         });
       }
 
-      if (product_ConceptSGMSettings.use_ajax_atc) {
+      if (product_WebArcDesignSettings.use_ajax_atc) {
         e?.preventDefault?.();
         this.toggleSpinner(true); // Some 3rd apps might override the default FormData, use this code to prevent it.
 
@@ -9368,7 +9368,7 @@ _defineProperty(this, "updateProductCardSoldOutBadge", variant => {
         const sourceEvent = formData.get('source_event') || 'product-form';
         this.cartAddFromForm(formData).then(r => r.json()).then(res => {
           if (res?.status === 422) {
-            modules_product_ConceptSGMTheme.Notification.show({
+            modules_product_WebArcDesignTheme.Notification.show({
               target: this?.domNodes?.error,
               method: 'appendChild',
               type: 'warning',
@@ -9419,7 +9419,7 @@ _defineProperty(this, "updateProductCardSoldOutBadge", variant => {
     if (saveInstanceToDOM) this.productForm._productInstane = this;
     if (autoInit) this.init().catch(console.error);
     this.productForm.classList.add('initialized');
-    modules_product_ConceptSGMTheme.Products?.productInstances?.push(this);
+    modules_product_WebArcDesignTheme.Products?.productInstances?.push(this);
   }
 
 }
@@ -9453,12 +9453,12 @@ class Products {
 
 }
 
-modules_product_ConceptSGMTheme.Product = Product;
-modules_product_ConceptSGMTheme.Products = new Products();
+modules_product_WebArcDesignTheme.Product = Product;
+modules_product_WebArcDesignTheme.Products = new Products();
 ;// CONCATENATED MODULE: ./src/js/components/SearchProductItem.jsx
-/* provided dependency */ var SearchProductItem_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var SearchProductItem_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var SearchProductItem_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var SearchProductItem_ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var SearchProductItem_WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 // eslint-disable-next-line no-unused-vars
 
 /* harmony default export */ function SearchProductItem(_ref) {
@@ -9467,8 +9467,8 @@ modules_product_ConceptSGMTheme.Products = new Products();
   } = _ref;
   let aspectRatio = product.featured_image.aspect_ratio;
 
-  if (SearchProductItem_ConceptSGMSettings.pcard_image_ratio !== 'original') {
-    aspectRatio = SearchProductItem_ConceptSGMSettings.pcard_image_ratio;
+  if (SearchProductItem_WebArcDesignSettings.pcard_image_ratio !== 'original') {
+    aspectRatio = SearchProductItem_WebArcDesignSettings.pcard_image_ratio;
   }
 
   const style = {
@@ -9480,13 +9480,13 @@ modules_product_ConceptSGMTheme.Products = new Products();
     comparePrice = SearchProductItem_createElement("span", {
       className: "sf-currency text-color-secondary text-sm line-through mr-2"
     });
-    comparePrice.innerHTML = formatMoney(product.compare_at_price_min, SearchProductItem_ConceptSGMSettings.money_format);
+    comparePrice.innerHTML = formatMoney(product.compare_at_price_min, SearchProductItem_WebArcDesignSettings.money_format);
   }
 
   const price = SearchProductItem_createElement("span", {
     className: "sf-currency"
   });
-  price.innerHTML = formatMoney(product.price_min, SearchProductItem_ConceptSGMSettings.money_format);
+  price.innerHTML = formatMoney(product.price_min, SearchProductItem_WebArcDesignSettings.money_format);
   return SearchProductItem_createElement("a", {
     href: product.url,
     className: "mb-3 flex flex-col group",
@@ -9501,7 +9501,7 @@ modules_product_ConceptSGMTheme.Products = new Products();
     alt: product?.featured_image?.alt
   }), product.available ? null : SearchProductItem_createElement("span", {
     class: "flex prod__tag prod__tag--soldout"
-  }, SearchProductItem_ConceptSGMStrings.soldOut || 'Sold Out')), SearchProductItem_createElement("div", {
+  }, SearchProductItem_WebArcDesignStrings.soldOut || 'Sold Out')), SearchProductItem_createElement("div", {
     className: "md:ml-0 w-full"
   }, SearchProductItem_createElement("p", {
     className: "font-medium group-hover:text-color-primary-darker"
@@ -9514,9 +9514,9 @@ modules_product_ConceptSGMTheme.Products = new Products();
   }, price))));
 }
 ;// CONCATENATED MODULE: ./src/js/modules/search.js
-/* provided dependency */ var search_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var search_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var search_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var search_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var search_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 // eslint-disable-next-line no-unused-vars
 
@@ -9677,7 +9677,7 @@ class Search {
 
       const {
         root
-      } = search_ConceptSGMSettings.routes;
+      } = search_WebArcDesignSettings.routes;
       const search_path = root === '/' ? '/search' : root + '/search';
       this.predictiveSearch = new PredictiveSearch({
         search_path: search_path,
@@ -9775,11 +9775,11 @@ class Search {
   }
 
 }
-search_ConceptSGMTheme.Search = new Search();
+search_WebArcDesignTheme.Search = new Search();
 ;// CONCATENATED MODULE: ./src/js/pages/compare-product.js
-/* provided dependency */ var compare_product_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var compare_product_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var compare_product_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var compare_product_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var compare_product_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 class CompareProduct {
   constructor() {
@@ -9804,7 +9804,7 @@ class CompareProduct {
     });
 
     _defineProperty(this, "init", () => {
-      if (compare_product_ConceptSGMSettings.template === this.pageTemplate) {
+      if (compare_product_WebArcDesignSettings.template === this.pageTemplate) {
         this.renderComparePage();
         this.addEventToRemoveButtons();
       } else {
@@ -9918,7 +9918,7 @@ class CompareProduct {
               prodNode.classList.remove('hidden');
             }
           });
-          compare_product_ConceptSGMTheme.Products.initProductForms().catch(console.error);
+          compare_product_WebArcDesignTheme.Products.initProductForms().catch(console.error);
         }
 
         if (noItemAvailable) {
@@ -9953,7 +9953,7 @@ class CompareProduct {
   }
 
 }
-compare_product_ConceptSGMTheme.CompareProduct = new CompareProduct();
+compare_product_WebArcDesignTheme.CompareProduct = new CompareProduct();
 ;// CONCATENATED MODULE: ./src/js/components/WishlistRemoveButton.jsx
 /* provided dependency */ var WishlistRemoveButton_createElement = __webpack_require__(6295)["default"];
 /* harmony default export */ function WishlistRemoveButton(_ref) {
@@ -9982,8 +9982,8 @@ compare_product_ConceptSGMTheme.CompareProduct = new CompareProduct();
 }
 ;// CONCATENATED MODULE: ./src/js/pages/wishlist.js
 /* provided dependency */ var wishlist_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var wishlist_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var wishlist_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var wishlist_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var wishlist_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 
 // eslint-disable-next-line no-unused-vars
 
@@ -10151,7 +10151,7 @@ class Wishlist {
               container.appendChild(prod);
               prod.classList.remove('hidden');
             }
-          }); // ConceptSGMTheme.Products.initProductForms().catch(console.error)
+          }); // WebArcDesignTheme.Products.initProductForms().catch(console.error)
         }
 
         if (noItemAvailable) {
@@ -10176,7 +10176,7 @@ class Wishlist {
     });
 
     this.products = Array.from(new Set(Array.from(JSON.parse(localStorage.getItem(this.storageKey)) || [])));
-    this.isWishlistPage = wishlist_ConceptSGMSettings.template === this.pageTemplate;
+    this.isWishlistPage = wishlist_WebArcDesignSettings.template === this.pageTemplate;
     this.init();
   }
 
@@ -10193,7 +10193,7 @@ class Wishlist {
   }
 
 }
-wishlist_ConceptSGMTheme.Wishlist = new Wishlist();
+wishlist_WebArcDesignTheme.Wishlist = new Wishlist();
 ;// CONCATENATED MODULE: ./src/js/utilities/dom-intersection-observer.js
 
 
@@ -10260,7 +10260,7 @@ var shopify = __webpack_require__(5118);
 
 function initTheme() {
   runHelpers();
-  loadAllSections(); // ConceptSGMTheme.Products.initProductForms().catch(console.error)
+  loadAllSections(); // WebArcDesignTheme.Products.initProductForms().catch(console.error)
 }
 
 initTheme();

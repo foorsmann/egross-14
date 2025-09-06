@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -1076,7 +1076,7 @@ function load_assets_loadAssets(param) {
   });
 }
 ;// CONCATENATED MODULE: ./src/js/utilities/index.js
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var utilities_createElement = __webpack_require__(6295)["default"];
 
 
@@ -1227,7 +1227,7 @@ function getVideoURL(id, host) {
 function showCookieConsent() {
   const {
     show_cookie_consent
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const cookieAccepted = getCookie('cookieconsent_status');
 
   if (show_cookie_consent && !cookieAccepted) {
@@ -1299,8 +1299,8 @@ function addRecentViewedProduct() {
   const cookies = getCookie('sf-recent-viewed-products');
   let products = cookies ? JSON.parse(cookies) : [];
 
-  if (products.indexOf(ConceptSGMSettings.productHandle) === -1) {
-    products.unshift(ConceptSGMSettings.productHandle);
+  if (products.indexOf(WebArcDesignSettings.productHandle) === -1) {
+    products.unshift(WebArcDesignSettings.productHandle);
     products = products.slice(0, 20);
     setCookie('sf-recent-viewed-products', JSON.stringify(products));
   }
@@ -1350,22 +1350,22 @@ function getParams() {
 
 const setSwatchesOptions = () => {
   try {
-    ConceptSGMSettings._colorSwatches = [];
-    ConceptSGMSettings._imageSwatches = [];
-    ConceptSGMSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
+    WebArcDesignSettings._colorSwatches = [];
+    WebArcDesignSettings._imageSwatches = [];
+    WebArcDesignSettings.product_colors.split(',').filter(Boolean).forEach(colorSwatch => {
       const [key, value] = colorSwatch.split(':');
 
-      ConceptSGMSettings._colorSwatches.push({
+      WebArcDesignSettings._colorSwatches.push({
         key: key.trim().toLowerCase(),
         value: value?.trim?.() || ''
       });
     });
-    Object.keys(ConceptSGMSettings).forEach(key => {
+    Object.keys(WebArcDesignSettings).forEach(key => {
       if (key.includes('filter_color') && !key.includes('.png')) {
-        if (ConceptSGMSettings[`${key}.png`]) {
-          ConceptSGMSettings._imageSwatches.push({
-            key: ConceptSGMSettings[key].toLowerCase(),
-            value: ConceptSGMSettings[`${key}.png`]
+        if (WebArcDesignSettings[`${key}.png`]) {
+          WebArcDesignSettings._imageSwatches.push({
+            key: WebArcDesignSettings[key].toLowerCase(),
+            value: WebArcDesignSettings[`${key}.png`]
           });
         }
       }
@@ -1389,7 +1389,7 @@ const formatUrl = (pageType, handle, query) => {
   let url;
   const {
     routes
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const root = routes.root.endsWith('/') ? '' : routes.root;
   url = `${root}/${pageType}/${handle}`;
   if (query) url += `?${query}`;
@@ -3952,7 +3952,7 @@ function cleanEscapedString(input) {
   return input.match(escapedStringRegExp)[1].replace(doubleQuoteRegExp, "'");
 }
 ;// CONCATENATED MODULE: ./src/js/components/PreOrderNote.jsx
-/* provided dependency */ var PreOrderNote_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var PreOrderNote_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var PreOrderNote_createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var i18n = __webpack_require__(7345)["default"];
 
@@ -3970,7 +3970,7 @@ function PreOrderNote(_ref) {
   } = settings;
   const {
     money_format
-  } = PreOrderNote_ConceptSGMSettings;
+  } = PreOrderNote_WebArcDesignSettings;
   const rate = Number(window.Shopify?.currency?.rate || 1);
   const discountValue = discount.type === 'PERCENTAGE' ? `${discount.value}%` : formatMoney(discount.value * 100 * rate, money_format);
   const discountTitle = PreOrderNote_createElement("li", null);
@@ -4001,10 +4001,10 @@ function PreOrderNote(_ref) {
   }, active_discount && discount?.value ? discountTitle : null, show_eta && eta ? shippingNote : null, set_end_time && end_time ? endTimeNode : null);
 }
 ;// CONCATENATED MODULE: ./src/js/foxkit/helpers.js
-/* provided dependency */ var helpers_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var helpers_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var helpers_createElement = __webpack_require__(6295)["default"];
 /* provided dependency */ var helpers_i18n = __webpack_require__(7345)["default"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 if (!String.prototype.capitalize) {
   String.prototype.capitalize = function () {
     return this.replace(this[0], this[0]?.toUpperCase?.());
@@ -4027,7 +4027,7 @@ function handleSubscribe(data) {
 }
 async function applyDiscountCode(code) {
   if (code) {
-    fetch(`${helpers_ConceptSGMSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
+    fetch(`${helpers_WebArcDesignSettings.shop_domain}/discount/${code}`).then(() => console.log(`[Foxkit] - Discount applied. Code: ${code}`)).catch(console.error);
   }
 }
 function copyToClipboard(value, button) {
@@ -4035,7 +4035,7 @@ function copyToClipboard(value, button) {
 
   if (button) {
     button.classList.add('copied');
-    button.innerText = window.ConceptSGMStrings.copied || 'Copied';
+    button.innerText = window.WebArcDesignStrings.copied || 'Copied';
   }
 }
 function insertAfter(newNode, referenceNode) {
@@ -4064,7 +4064,7 @@ function addToCart() {
 }
 function getDiscountSummary(discount) {
   const discountText = helpers_createElement("span", null);
-  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), helpers_ConceptSGMSettings.money_format);
+  const discountValue = discount?.type === 'PERCENTAGE' ? `${discount?.value}%` : formatMoney(discount?.value * 100 * Number(window.Shopify?.currency?.rate || 1), helpers_WebArcDesignSettings.money_format);
   discountText.innerHTML = helpers_i18n.tr('discount_summary', {
     'discount_value': discountValue
   });
@@ -4091,7 +4091,7 @@ const updateCartAttributes = offer => {
       if (!offer || !offer?.offer_id) return;
       const {
         attributes = {}
-      } = ConceptSGMTheme?.Cart?.cart || {};
+      } = WebArcDesignTheme?.Cart?.cart || {};
       let {
         _foxCartDiscounts
       } = attributes;
@@ -4134,10 +4134,10 @@ const isMobile = () => {
   return check;
 };
 ;// CONCATENATED MODULE: ./src/js/foxkit/main.js
-/* provided dependency */ var main_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var main_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var main_i18n = __webpack_require__(7345)["default"];
-/* provided dependency */ var main_ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
+/* provided dependency */ var main_WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
 /* provided dependency */ var main_createElement = __webpack_require__(6295)["default"];
 
 
@@ -4149,13 +4149,13 @@ const isMobile = () => {
 
 class FoxKit {
   constructor() {
-    (0,defineProperty/* default */.Z)(this, "appURL", main_ConceptSGMSettings.foxkitAppURL ? `https://${main_ConceptSGMSettings.foxkitAppURL}` : '');
+    (0,defineProperty/* default */.Z)(this, "appURL", main_WebArcDesignSettings.foxkitAppURL ? `https://${main_WebArcDesignSettings.foxkitAppURL}` : '');
 
     (0,defineProperty/* default */.Z)(this, "shop", window.Shopify.shop);
 
-    (0,defineProperty/* default */.Z)(this, "page", main_ConceptSGMSettings.template);
+    (0,defineProperty/* default */.Z)(this, "page", main_WebArcDesignSettings.template);
 
-    (0,defineProperty/* default */.Z)(this, "template", main_ConceptSGMSettings.templateName);
+    (0,defineProperty/* default */.Z)(this, "template", main_WebArcDesignSettings.templateName);
 
     (0,defineProperty/* default */.Z)(this, "foxKitSettings", {});
 
@@ -4195,7 +4195,7 @@ class FoxKit {
     (0,defineProperty/* default */.Z)(this, "init", async () => {
       console.log('======> Start init FoxKit App plugins!');
       this.domNodes = queryDomNodes(this.selectors);
-      const locale = main_ConceptSGMSettings.shop_locale?.current || 'en';
+      const locale = main_WebArcDesignSettings.shop_locale?.current || 'en';
       await load_assets_loadAssets('foxkitApp.css');
       const {
         FoxKitStrings
@@ -4245,8 +4245,8 @@ class FoxKit {
       }
 
       this.renderPreOrderNote();
-      await this.renderNewCart(main_ConceptSGMTheme?.Cart?.cart);
-      ConceptSGMEvents.subscribe('ON_CART_UPDATE', this.renderNewCart); // ConceptSGMEvents.subscribe('ON_FOX_CART_UPDATE', this.removeAttribute)
+      await this.renderNewCart(main_WebArcDesignTheme?.Cart?.cart);
+      WebArcDesignEvents.subscribe('ON_CART_UPDATE', this.renderNewCart); // WebArcDesignEvents.subscribe('ON_FOX_CART_UPDATE', this.removeAttribute)
     });
 
     (0,defineProperty/* default */.Z)(this, "handleCheckout", e => {
@@ -4254,8 +4254,8 @@ class FoxKit {
       e.stopPropagation();
       const checkoutButton = e.target;
       checkoutButton.classList.add('sf-spinner-loading');
-      const newCart = this.generateFoxkitCart(main_ConceptSGMTheme?.Cart?.cart);
-      const locale = main_ConceptSGMSettings.shop_locale?.current || 'en';
+      const newCart = this.generateFoxkitCart(main_WebArcDesignTheme?.Cart?.cart);
+      const locale = main_WebArcDesignSettings.shop_locale?.current || 'en';
       fetch(`${this.appURL}/api/public/checkout?shop=${this.shop}`, {
         method: 'POST',
         body: JSON.stringify(newCart)
@@ -4318,12 +4318,12 @@ class FoxKit {
           productType
         } = relatedProductSection.dataset;
         headingNode.textContent = heading.replace('{product_title}', productTitle).replace('{product_vendor}', productVendor).replace('{product_type}', productType);
-        this.RelatedProducts = new main_ConceptSGMTheme.ProductList(relatedProductSection, recommended_products);
+        this.RelatedProducts = new main_WebArcDesignTheme.ProductList(relatedProductSection, recommended_products);
       }
     });
 
     (0,defineProperty/* default */.Z)(this, "initBundle", () => {
-      const ProductBundle = main_ConceptSGMTheme?.ProductBundle;
+      const ProductBundle = main_WebArcDesignTheme?.ProductBundle;
 
       if (ProductBundle) {
         const {
@@ -4392,7 +4392,7 @@ class FoxKit {
       const {
         countdown
       } = this.foxKitSettings;
-      this.Countdown = new main_ConceptSGMTheme.ProductCountdown(countdown);
+      this.Countdown = new main_WebArcDesignTheme.ProductCountdown(countdown);
     });
 
     (0,defineProperty/* default */.Z)(this, "initStockCountdown", () => {});
@@ -4429,7 +4429,7 @@ class FoxKit {
       if (!preOrder || !preOrder?.active) return;
       const {
         date_now
-      } = window.ConceptSGMSettings;
+      } = window.WebArcDesignSettings;
       const {
         active,
         start_time,
@@ -4463,7 +4463,7 @@ class FoxKit {
       nodes.sections.forEach(section => {
         const {
           date_now
-        } = window.ConceptSGMSettings;
+        } = window.WebArcDesignSettings;
         const {
           preorderActive,
           preorderStartTime,
@@ -4570,7 +4570,7 @@ class FoxKit {
     });
 
     (0,defineProperty/* default */.Z)(this, "renderNewCart", cart => {
-      if (!cart || !cart.item_count) return ConceptSGMEvents.emit('ON_FOX_CART_UPDATE', cart);
+      if (!cart || !cart.item_count) return WebArcDesignEvents.emit('ON_FOX_CART_UPDATE', cart);
       this.getNewCart(cart).then(_ref2 => {
         let {
           payload: newCart
@@ -4583,7 +4583,7 @@ class FoxKit {
 
         if (newCart) {
           this.newCart = newCart;
-          ConceptSGMEvents.emit('ON_FOX_CART_UPDATE', newCart);
+          WebArcDesignEvents.emit('ON_FOX_CART_UPDATE', newCart);
           const {
             _foxCartPrices
           } = newCart;
@@ -4594,7 +4594,7 @@ class FoxKit {
 
             if (cartGoalSettings?.active && cartGoalSettings.goal_amount) {
               const cartGoal = Number(cartGoalSettings.goal_amount || 0) * Number(Shopify?.currency?.rate || 1) * 100;
-              const cartTotal = main_ConceptSGMTheme?.Cart?.cart?.total_price || 0;
+              const cartTotal = main_WebArcDesignTheme?.Cart?.cart?.total_price || 0;
 
               if (cartTotal >= cartGoal) {
                 shouldAddCheckoutEvent = true;
@@ -4622,7 +4622,7 @@ class FoxKit {
             this.lastDiscount = cartDiscountTitle;
             const {
               money_format
-            } = main_ConceptSGMSettings;
+            } = main_WebArcDesignSettings;
             if (subTotalPrice) setTimeout(() => subTotalPrice.innerHTML = formatMoney(total_price, money_format), 200);
             cartDiscountsWrapper?.classList.remove('hidden');
           }
@@ -4640,7 +4640,7 @@ class FoxKit {
 
           if (showFoxWarning) {
             msg = main_i18n.tr('fox_discount_noti', {
-              price: formatMoney(newCart._foxCartPrices.total_discounted_amount, main_ConceptSGMSettings.money_format),
+              price: formatMoney(newCart._foxCartPrices.total_discounted_amount, main_WebArcDesignSettings.money_format),
               discount_title: main_i18n.tr('discount_title')
             });
 
@@ -4716,14 +4716,14 @@ class FoxKit {
       if (!_foxCartPrices) {
         const {
           attributes = {}
-        } = main_ConceptSGMTheme.Cart?.cart;
+        } = main_WebArcDesignTheme.Cart?.cart;
         let {
           _foxCartDiscounts
         } = attributes;
 
         if (_foxCartDiscounts) {
           delete attributes['_foxCartDiscounts'];
-          await main_ConceptSGMTheme.Cart?.updateCart({
+          await main_WebArcDesignTheme.Cart?.updateCart({
             attributes
           });
         }
@@ -4733,7 +4733,7 @@ class FoxKit {
     (0,defineProperty/* default */.Z)(this, "generateCartDiscount", discountValue => {
       const discountList = main_createElement("ul", null);
       discountList.classList.add('scd-cart__discounts');
-      discountValue = formatMoney(discountValue, main_ConceptSGMSettings.money_format);
+      discountValue = formatMoney(discountValue, main_WebArcDesignSettings.money_format);
       const discountTitle = main_createElement("li", null);
       discountTitle.innerHTML = `<svg aria-hidden="true" width="20" height="20" focusable="false" role="presentation" viewBox="0 0 12 13"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 .5h3a2 2 0 0 1 2 2v3a.995.995 0 0 1-.293.707l-6 6a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414l6-6A.995.995 0 0 1 7 .5zm2 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" fill="currentColor"></path></svg> ${main_i18n.tr('discount_title')} (-${discountValue})`;
       discountList.appendChild(discountTitle);

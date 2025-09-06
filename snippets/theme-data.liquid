@@ -30,13 +30,13 @@
 %}
 
 {%- capture theme_data -%}
-window.ConceptSGMThemeStyles = {
+window.WebArcDesignThemeStyles = {
   product: "{{ 'product.css' | asset_url | prepend: 'https:' }}"
 };
-window.ConceptSGMTheme = {};
-window.ConceptSGMLibs = {};
+window.WebArcDesignTheme = {};
+window.WebArcDesignLibs = {};
 window.FoxKitStrings = {};
-window.ConceptSGMStrings = {
+window.WebArcDesignStrings = {
   addToCart: {{ 'products.product.add_to_cart' | t | json }},
   soldOut: {{ 'products.product.sold_out' | t | json }},
   unavailable: {{ 'products.product.unavailable' | t | json }},
@@ -66,13 +66,13 @@ window.ConceptSGMStrings = {
 
 window.FoxKitStrings = {{ shop.metafields.foxecom-bs-kit.locale.value | json }};
 
-window.ConceptSGMThemeScripts = {
+window.WebArcDesignThemeScripts = {
   productModel: "{{ 'product-model-new.min.js' | asset_url | prepend: 'https:' }}",
   productMedia: "{{ 'product-media.min.js' | asset_url | prepend: 'https:' }}",
   variantsPicker: "{{ 'variant-picker.min.js' | asset_url | prepend: 'https:' }}"
 };
 
-window.ConceptSGMSettings = {
+window.WebArcDesignSettings = {
   design_mode: {{ request.design_mode | json }},
   requestPath: {{ request.path | json }},
   template: {{ template | json }},

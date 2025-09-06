@@ -7,14 +7,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4942);
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 
 
 class I18N {
   constructor() {
     var _this = this;
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", ConceptSGMSettings.shop_locale?.current || 'en');
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "shop_locale", WebArcDesignSettings.shop_locale?.current || 'en');
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(this, "locales", {
       'default': {
@@ -97,25 +97,25 @@ window.__i18n = window.__i18n || i18n;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConceptSGMEvents": function() { return /* binding */ ConceptSGMEvents; },
-/* harmony export */   "ConceptSGMTheme": function() { return /* binding */ ConceptSGMTheme; },
-/* harmony export */   "ConceptSGMSettings": function() { return /* binding */ ConceptSGMSettings; },
-/* harmony export */   "ConceptSGMStrings": function() { return /* binding */ ConceptSGMStrings; },
-/* harmony export */   "ConceptSGMLibs": function() { return /* binding */ ConceptSGMLibs; }
+/* harmony export */   "WebArcDesignEvents": function() { return /* binding */ WebArcDesignEvents; },
+/* harmony export */   "WebArcDesignTheme": function() { return /* binding */ WebArcDesignTheme; },
+/* harmony export */   "WebArcDesignSettings": function() { return /* binding */ WebArcDesignSettings; },
+/* harmony export */   "WebArcDesignStrings": function() { return /* binding */ WebArcDesignStrings; },
+/* harmony export */   "WebArcDesignLibs": function() { return /* binding */ WebArcDesignLibs; }
 /* harmony export */ });
 /* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8971);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9280);
 /* harmony import */ var _libs_loadjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_libs_loadjs__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.ConceptSGMEvents = window.ConceptSGMEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
-window._ThemeEvent = window.ConceptSGMEvents;
-window.ConceptSGMLibs.loadjs = __loadjs;
-const ConceptSGMEvents = window.ConceptSGMEvents;
-const ConceptSGMTheme = window.ConceptSGMTheme || {};
-const ConceptSGMSettings = window.ConceptSGMSettings || {};
-const ConceptSGMStrings = window.ConceptSGMStrings || {};
-const ConceptSGMLibs = window.ConceptSGMLibs || {};
+window.WebArcDesignEvents = window.WebArcDesignEvents || new _utils_events__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z();
+window._ThemeEvent = window.WebArcDesignEvents;
+window.WebArcDesignLibs.loadjs = __loadjs;
+const WebArcDesignEvents = window.WebArcDesignEvents;
+const WebArcDesignTheme = window.WebArcDesignTheme || {};
+const WebArcDesignSettings = window.WebArcDesignSettings || {};
+const WebArcDesignStrings = window.WebArcDesignStrings || {};
+const WebArcDesignLibs = window.WebArcDesignLibs || {};
 
 /***/ }),
 
@@ -644,8 +644,8 @@ const NotifyButton = _ref => {
   }));
 }
 ;// CONCATENATED MODULE: ./src/js/components/BIS/Popup.jsx
-/* provided dependency */ var ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
-/* provided dependency */ var ConceptSGMStrings = __webpack_require__(4558)["ConceptSGMStrings"];
+/* provided dependency */ var WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
+/* provided dependency */ var WebArcDesignStrings = __webpack_require__(4558)["WebArcDesignStrings"];
 /* provided dependency */ var Popup_createElement = __webpack_require__(6295)["default"];
 
 
@@ -677,10 +677,10 @@ const Popup = _ref => {
   } = variant;
   const {
     money_format
-  } = ConceptSGMSettings;
+  } = WebArcDesignSettings;
   const {
     soldOut
-  } = ConceptSGMStrings;
+  } = WebArcDesignStrings;
   const src = featured_image?.src || productData.images[0];
   const syncWithShopify = save_to.indexOf('shopify_customers') !== -1;
   const saveToSubscriptionList = save_to.indexOf('foxkit_subscribers') !== -1;
@@ -894,10 +894,10 @@ class Modal {
 
 /* harmony default export */ var modal = (Modal);
 ;// CONCATENATED MODULE: ./src/js/foxkit/plugins/bis.js
-/* provided dependency */ var bis_ConceptSGMSettings = __webpack_require__(4558)["ConceptSGMSettings"];
+/* provided dependency */ var bis_WebArcDesignSettings = __webpack_require__(4558)["WebArcDesignSettings"];
 /* provided dependency */ var bis_createElement = __webpack_require__(6295)["default"];
-/* provided dependency */ var ConceptSGMEvents = __webpack_require__(4558)["ConceptSGMEvents"];
-/* provided dependency */ var ConceptSGMTheme = __webpack_require__(4558)["ConceptSGMTheme"];
+/* provided dependency */ var WebArcDesignEvents = __webpack_require__(4558)["WebArcDesignEvents"];
+/* provided dependency */ var WebArcDesignTheme = __webpack_require__(4558)["WebArcDesignTheme"];
 /* provided dependency */ var bis_i18n = __webpack_require__(7345)["default"];
 
 
@@ -908,11 +908,11 @@ class BIS {
   constructor(settings) {
     (0,defineProperty/* default */.Z)(this, "modal", new modal());
 
-    (0,defineProperty/* default */.Z)(this, "appURL", bis_ConceptSGMSettings.foxkitAppURL ? `https://${bis_ConceptSGMSettings.foxkitAppURL}` : '');
+    (0,defineProperty/* default */.Z)(this, "appURL", bis_WebArcDesignSettings.foxkitAppURL ? `https://${bis_WebArcDesignSettings.foxkitAppURL}` : '');
 
     (0,defineProperty/* default */.Z)(this, "shop", window.Shopify.shop);
 
-    (0,defineProperty/* default */.Z)(this, "productId", bis_ConceptSGMSettings.productId);
+    (0,defineProperty/* default */.Z)(this, "productId", bis_WebArcDesignSettings.productId);
 
     (0,defineProperty/* default */.Z)(this, "mainProdInstance", void 0);
 
@@ -941,7 +941,7 @@ class BIS {
       let current_variant_id = this.mainVariantPicker.currentVariant.id;
       const currentVariant = this.mainVariantPicker.productData.variants.find(v => v.id === current_variant_id);
       this.toggleShowBISButton(currentVariant);
-      ConceptSGMEvents.subscribe(`${this.productId}__VARIANT_CHANGE`, (variant, prodInstance) => {
+      WebArcDesignEvents.subscribe(`${this.productId}__VARIANT_CHANGE`, (variant, prodInstance) => {
         this.settings.productData.current_variant_id = variant.id;
 
         if (!prodInstance.view) {
@@ -969,7 +969,7 @@ class BIS {
       let current_variant_id = this.mainVariantPicker.currentVariant.id;
       const currentVariant = this.mainVariantPicker.productData.variants.find(v => v.id === current_variant_id);
       this.toggleShowBISButtonSticky(currentVariant);
-      ConceptSGMEvents.subscribe(`${this.productId}__VARIANT_CHANGE`, (variant, prodInstance) => {
+      WebArcDesignEvents.subscribe(`${this.productId}__VARIANT_CHANGE`, (variant, prodInstance) => {
         this.settings.productData.current_variant_id = variant.id;
 
         if (!prodInstance.view) {
@@ -1042,7 +1042,7 @@ class BIS {
       }).then(r => r.json()).then(res => {
         this.toggleLoading(submitButton, false);
         this.modal.close();
-        ConceptSGMTheme.Notification.show({
+        WebArcDesignTheme.Notification.show({
           target: feedBackNode,
           method: 'appendChild',
           type: res.ok ? 'success' : 'warning',
