@@ -17,7 +17,7 @@ class CollectionPCardError {
   show(msg) {
     if (!this.node) return;
     clearTimeout(this.timer);
-    if (!msg) msg = window.ConceptSGMStrings?.cartError || 'Error';
+    if (!msg) msg = window.WebArcDesignStrings?.cartError || 'Error';
     msg = this.removeDiacritics(msg);
     this.msgEl.textContent = msg;
     this.node.classList.remove('show');
